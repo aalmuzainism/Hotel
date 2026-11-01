@@ -44,22 +44,22 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Tahoma", 28F);
-            this.label1.Location = new System.Drawing.Point(379, 9);
+            this.label1.Font = new System.Drawing.Font("Tahoma", 30F);
+            this.label1.Location = new System.Drawing.Point(603, 9);
             this.label1.Name = "label1";
             this.label1.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.label1.Size = new System.Drawing.Size(223, 46);
+            this.label1.Size = new System.Drawing.Size(234, 48);
             this.label1.TabIndex = 8;
             this.label1.Text = "ادارة الوحدات";
             // 
             // btnAddRoom
             // 
             this.btnAddRoom.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnAddRoom.Font = new System.Drawing.Font("Tahoma", 12F);
-            this.btnAddRoom.Location = new System.Drawing.Point(885, 217);
+            this.btnAddRoom.Font = new System.Drawing.Font("Tahoma", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAddRoom.Location = new System.Drawing.Point(1398, 376);
             this.btnAddRoom.Name = "btnAddRoom";
             this.btnAddRoom.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.btnAddRoom.Size = new System.Drawing.Size(92, 38);
+            this.btnAddRoom.Size = new System.Drawing.Size(90, 35);
             this.btnAddRoom.TabIndex = 7;
             this.btnAddRoom.Text = "اضافة";
             this.btnAddRoom.UseVisualStyleBackColor = true;
@@ -68,11 +68,11 @@
             // btnClose
             // 
             this.btnClose.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnClose.Font = new System.Drawing.Font("Tahoma", 12F);
-            this.btnClose.Location = new System.Drawing.Point(885, 489);
+            this.btnClose.Font = new System.Drawing.Font("Tahoma", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnClose.Location = new System.Drawing.Point(1398, 723);
             this.btnClose.Name = "btnClose";
             this.btnClose.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.btnClose.Size = new System.Drawing.Size(92, 38);
+            this.btnClose.Size = new System.Drawing.Size(90, 35);
             this.btnClose.TabIndex = 6;
             this.btnClose.Text = "اغلاق";
             this.btnClose.UseVisualStyleBackColor = true;
@@ -84,9 +84,9 @@
             this.flpListRoom.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.flpListRoom.ContextMenuStrip = this.contextMenuStrip1;
             this.flpListRoom.Font = new System.Drawing.Font("Tahoma", 9F);
-            this.flpListRoom.Location = new System.Drawing.Point(12, 261);
+            this.flpListRoom.Location = new System.Drawing.Point(12, 417);
             this.flpListRoom.Name = "flpListRoom";
-            this.flpListRoom.Size = new System.Drawing.Size(965, 222);
+            this.flpListRoom.Size = new System.Drawing.Size(1476, 300);
             this.flpListRoom.TabIndex = 9;
             // 
             // contextMenuStrip1
@@ -132,12 +132,12 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(994, 541);
+            this.ClientSize = new System.Drawing.Size(1500, 770);
             this.Controls.Add(this.flpListRoom);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.btnAddRoom);
             this.Controls.Add(this.btnClose);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "frmListRooms";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "ادارة الوحدات";

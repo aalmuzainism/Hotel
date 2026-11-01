@@ -50,11 +50,11 @@
             this.dgvListPeople.BackgroundColor = System.Drawing.Color.White;
             this.dgvListPeople.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvListPeople.ContextMenuStrip = this.contextMenuStrip1;
-            this.dgvListPeople.Location = new System.Drawing.Point(12, 353);
+            this.dgvListPeople.Location = new System.Drawing.Point(12, 417);
             this.dgvListPeople.Name = "dgvListPeople";
             this.dgvListPeople.ReadOnly = true;
             this.dgvListPeople.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvListPeople.Size = new System.Drawing.Size(1142, 262);
+            this.dgvListPeople.Size = new System.Drawing.Size(1476, 300);
             this.dgvListPeople.TabIndex = 0;
             // 
             // contextMenuStrip1
@@ -92,22 +92,22 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Tahoma", 38F);
-            this.label1.Location = new System.Drawing.Point(365, 9);
+            this.label1.Font = new System.Drawing.Font("Tahoma", 30F);
+            this.label1.Location = new System.Drawing.Point(610, 9);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(369, 62);
+            this.label1.Size = new System.Drawing.Size(263, 48);
             this.label1.TabIndex = 1;
-            this.label1.Text = "Manage People";
+            this.label1.Text = "ادارة الاشخاص";
             // 
             // btnClose
             // 
             this.btnClose.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnClose.Font = new System.Drawing.Font("Tahoma", 12F);
-            this.btnClose.Location = new System.Drawing.Point(1080, 621);
+            this.btnClose.Font = new System.Drawing.Font("Tahoma", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnClose.Location = new System.Drawing.Point(1398, 723);
             this.btnClose.Name = "btnClose";
-            this.btnClose.Size = new System.Drawing.Size(74, 40);
+            this.btnClose.Size = new System.Drawing.Size(90, 35);
             this.btnClose.TabIndex = 3;
-            this.btnClose.Text = "Close";
+            this.btnClose.Text = "اغلاق";
             this.btnClose.UseVisualStyleBackColor = true;
             this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
             // 
@@ -115,9 +115,9 @@
             // 
             this.pbAddNewPerson.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.pbAddNewPerson.Image = global::HotelPresentationLayer.Properties.Resources.Add_Person_72;
-            this.pbAddNewPerson.Location = new System.Drawing.Point(1082, 297);
+            this.pbAddNewPerson.Location = new System.Drawing.Point(1398, 366);
             this.pbAddNewPerson.Name = "pbAddNewPerson";
-            this.pbAddNewPerson.Size = new System.Drawing.Size(72, 50);
+            this.pbAddNewPerson.Size = new System.Drawing.Size(90, 45);
             this.pbAddNewPerson.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pbAddNewPerson.TabIndex = 5;
             this.pbAddNewPerson.TabStop = false;
@@ -128,12 +128,12 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(1160, 669);
+            this.ClientSize = new System.Drawing.Size(1500, 770);
             this.Controls.Add(this.pbAddNewPerson);
             this.Controls.Add(this.btnClose);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.dgvListPeople);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "frmListPeople";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Manage People";

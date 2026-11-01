@@ -59,9 +59,9 @@
             // 
             this.flpListRooms.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.flpListRooms.ContextMenuStrip = this.contextMenuStrip1;
-            this.flpListRooms.Location = new System.Drawing.Point(12, 312);
+            this.flpListRooms.Location = new System.Drawing.Point(12, 416);
             this.flpListRooms.Name = "flpListRooms";
-            this.flpListRooms.Size = new System.Drawing.Size(1134, 298);
+            this.flpListRooms.Size = new System.Drawing.Size(1476, 300);
             this.flpListRooms.TabIndex = 0;
             // 
             // contextMenuStrip1
@@ -139,10 +139,10 @@
             // btnClose
             // 
             this.btnClose.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnClose.Font = new System.Drawing.Font("Tahoma", 14F);
-            this.btnClose.Location = new System.Drawing.Point(1063, 616);
+            this.btnClose.Font = new System.Drawing.Font("Tahoma", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnClose.Location = new System.Drawing.Point(1398, 723);
             this.btnClose.Name = "btnClose";
-            this.btnClose.Size = new System.Drawing.Size(83, 34);
+            this.btnClose.Size = new System.Drawing.Size(90, 35);
             this.btnClose.TabIndex = 2;
             this.btnClose.Text = "اغلاق";
             this.btnClose.UseVisualStyleBackColor = true;
@@ -152,7 +152,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Tahoma", 30F);
-            this.label1.Location = new System.Drawing.Point(499, 9);
+            this.label1.Location = new System.Drawing.Point(609, 9);
             this.label1.Name = "label1";
             this.label1.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.label1.Size = new System.Drawing.Size(182, 48);
@@ -170,9 +170,9 @@
             "الخروج اليوم",
             "المتاح بتاريخ",
             "البحث بالهوية"});
-            this.cbFilter.Location = new System.Drawing.Point(952, 279);
+            this.cbFilter.Location = new System.Drawing.Point(1298, 383);
             this.cbFilter.Name = "cbFilter";
-            this.cbFilter.Size = new System.Drawing.Size(194, 27);
+            this.cbFilter.Size = new System.Drawing.Size(190, 27);
             this.cbFilter.TabIndex = 10;
             this.cbFilter.SelectedIndexChanged += new System.EventHandler(this.cbFilter_SelectedIndexChanged);
             // 
@@ -237,7 +237,7 @@
             this.groupBox1.Controls.Add(this.dtpCheckOut);
             this.groupBox1.Controls.Add(this.lblTo);
             this.groupBox1.Controls.Add(this.lblFrom);
-            this.groupBox1.Location = new System.Drawing.Point(952, 94);
+            this.groupBox1.Location = new System.Drawing.Point(1294, 195);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(194, 158);
             this.groupBox1.TabIndex = 18;
@@ -246,10 +246,10 @@
             // txtSearch
             // 
             this.txtSearch.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtSearch.Font = new System.Drawing.Font("Tahoma", 12F);
-            this.txtSearch.Location = new System.Drawing.Point(662, 279);
+            this.txtSearch.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtSearch.Location = new System.Drawing.Point(1098, 383);
             this.txtSearch.Name = "txtSearch";
-            this.txtSearch.Size = new System.Drawing.Size(191, 27);
+            this.txtSearch.Size = new System.Drawing.Size(190, 27);
             this.txtSearch.TabIndex = 20;
             this.txtSearch.Visible = false;
             this.txtSearch.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtSearch_KeyPress);
@@ -257,10 +257,10 @@
             // btnSearchText
             // 
             this.btnSearchText.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnSearchText.Font = new System.Drawing.Font("Tahoma", 12F);
-            this.btnSearchText.Location = new System.Drawing.Point(859, 279);
+            this.btnSearchText.Font = new System.Drawing.Font("Tahoma", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSearchText.Location = new System.Drawing.Point(1198, 342);
             this.btnSearchText.Name = "btnSearchText";
-            this.btnSearchText.Size = new System.Drawing.Size(87, 27);
+            this.btnSearchText.Size = new System.Drawing.Size(90, 35);
             this.btnSearchText.TabIndex = 21;
             this.btnSearchText.Text = "بحث";
             this.btnSearchText.UseVisualStyleBackColor = true;
@@ -272,7 +272,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(1158, 664);
+            this.ClientSize = new System.Drawing.Size(1500, 770);
             this.Controls.Add(this.btnSearchText);
             this.Controls.Add(this.txtSearch);
             this.Controls.Add(this.groupBox1);
@@ -280,7 +280,7 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.btnClose);
             this.Controls.Add(this.flpListRooms);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "frmListReservationRooms";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "ListReservationRooms";

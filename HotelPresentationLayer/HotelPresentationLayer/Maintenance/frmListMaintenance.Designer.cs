@@ -47,18 +47,18 @@
             this.cbFilterMaintenance.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbFilterMaintenance.Font = new System.Drawing.Font("Tahoma", 12F);
             this.cbFilterMaintenance.FormattingEnabled = true;
-            this.cbFilterMaintenance.Location = new System.Drawing.Point(952, 296);
+            this.cbFilterMaintenance.Location = new System.Drawing.Point(1298, 384);
             this.cbFilterMaintenance.Name = "cbFilterMaintenance";
-            this.cbFilterMaintenance.Size = new System.Drawing.Size(194, 27);
+            this.cbFilterMaintenance.Size = new System.Drawing.Size(190, 27);
             this.cbFilterMaintenance.TabIndex = 13;
             // 
             // btnClose
             // 
             this.btnClose.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnClose.Font = new System.Drawing.Font("Tahoma", 14F);
-            this.btnClose.Location = new System.Drawing.Point(1063, 633);
+            this.btnClose.Font = new System.Drawing.Font("Tahoma", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnClose.Location = new System.Drawing.Point(1398, 723);
             this.btnClose.Name = "btnClose";
-            this.btnClose.Size = new System.Drawing.Size(83, 34);
+            this.btnClose.Size = new System.Drawing.Size(90, 35);
             this.btnClose.TabIndex = 12;
             this.btnClose.Text = "اغلاق";
             this.btnClose.UseVisualStyleBackColor = true;
@@ -68,9 +68,9 @@
             // 
             this.flpListMaintenance.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.flpListMaintenance.ContextMenuStrip = this.contextMenuStrip1;
-            this.flpListMaintenance.Location = new System.Drawing.Point(12, 329);
+            this.flpListMaintenance.Location = new System.Drawing.Point(12, 417);
             this.flpListMaintenance.Name = "flpListMaintenance";
-            this.flpListMaintenance.Size = new System.Drawing.Size(1134, 298);
+            this.flpListMaintenance.Size = new System.Drawing.Size(1476, 300);
             this.flpListMaintenance.TabIndex = 11;
             // 
             // contextMenuStrip1
@@ -121,7 +121,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Tahoma", 30F);
-            this.label1.Location = new System.Drawing.Point(509, 9);
+            this.label1.Location = new System.Drawing.Point(667, 9);
             this.label1.Name = "label1";
             this.label1.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.label1.Size = new System.Drawing.Size(132, 48);
@@ -133,12 +133,12 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(1154, 674);
-            this.Controls.Add(this.label1);
+            this.ClientSize = new System.Drawing.Size(1500, 770);
             this.Controls.Add(this.cbFilterMaintenance);
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.btnClose);
             this.Controls.Add(this.flpListMaintenance);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "frmListMaintenance";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "ListMaintenance";
