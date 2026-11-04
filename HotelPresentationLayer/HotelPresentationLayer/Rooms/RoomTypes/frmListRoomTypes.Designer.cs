@@ -48,11 +48,11 @@
             this.dgvListRoomTypes.BackgroundColor = System.Drawing.Color.White;
             this.dgvListRoomTypes.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvListRoomTypes.ContextMenuStrip = this.contextMenuStrip1;
-            this.dgvListRoomTypes.Location = new System.Drawing.Point(12, 284);
+            this.dgvListRoomTypes.Location = new System.Drawing.Point(12, 417);
             this.dgvListRoomTypes.Name = "dgvListRoomTypes";
             this.dgvListRoomTypes.ReadOnly = true;
             this.dgvListRoomTypes.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvListRoomTypes.Size = new System.Drawing.Size(820, 150);
+            this.dgvListRoomTypes.Size = new System.Drawing.Size(1476, 300);
             this.dgvListRoomTypes.TabIndex = 0;
             // 
             // contextMenuStrip1
@@ -81,48 +81,48 @@
             // btnClose
             // 
             this.btnClose.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnClose.Font = new System.Drawing.Font("Tahoma", 12F);
-            this.btnClose.Location = new System.Drawing.Point(740, 441);
+            this.btnClose.Font = new System.Drawing.Font("Tahoma", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnClose.Location = new System.Drawing.Point(1398, 723);
             this.btnClose.Name = "btnClose";
-            this.btnClose.Size = new System.Drawing.Size(92, 32);
+            this.btnClose.Size = new System.Drawing.Size(90, 35);
             this.btnClose.TabIndex = 1;
-            this.btnClose.Text = "Close";
+            this.btnClose.Text = "اغلاق";
             this.btnClose.UseVisualStyleBackColor = true;
             this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
             // 
             // btnAddRoomType
             // 
             this.btnAddRoomType.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnAddRoomType.Font = new System.Drawing.Font("Tahoma", 12F);
-            this.btnAddRoomType.Location = new System.Drawing.Point(740, 246);
+            this.btnAddRoomType.Font = new System.Drawing.Font("Tahoma", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAddRoomType.Location = new System.Drawing.Point(1398, 376);
             this.btnAddRoomType.Name = "btnAddRoomType";
-            this.btnAddRoomType.Size = new System.Drawing.Size(92, 32);
+            this.btnAddRoomType.Size = new System.Drawing.Size(90, 35);
             this.btnAddRoomType.TabIndex = 2;
-            this.btnAddRoomType.Text = "Add";
+            this.btnAddRoomType.Text = "اضافة";
             this.btnAddRoomType.UseVisualStyleBackColor = true;
             this.btnAddRoomType.Click += new System.EventHandler(this.btnAddRoomType_Click);
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Tahoma", 28F);
-            this.label1.Location = new System.Drawing.Point(215, 9);
+            this.label1.Font = new System.Drawing.Font("Tahoma", 30F);
+            this.label1.Location = new System.Drawing.Point(590, 9);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(372, 46);
+            this.label1.Size = new System.Drawing.Size(320, 48);
             this.label1.TabIndex = 4;
-            this.label1.Text = "Manage Room Types";
+            this.label1.Text = "ادارة انواع الوحدات";
             // 
             // frmListRoomTypes
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(844, 485);
+            this.ClientSize = new System.Drawing.Size(1500, 770);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.btnAddRoomType);
             this.Controls.Add(this.btnClose);
             this.Controls.Add(this.dgvListRoomTypes);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "frmListRoomTypes";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Manage Room Types";
