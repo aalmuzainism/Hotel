@@ -61,51 +61,52 @@
             this.dtpDateOfBitrh.CalendarFont = new System.Drawing.Font("Tahoma", 10F);
             this.dtpDateOfBitrh.Font = new System.Drawing.Font("Tahoma", 12F);
             this.dtpDateOfBitrh.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dtpDateOfBitrh.Location = new System.Drawing.Point(473, 233);
+            this.dtpDateOfBitrh.Location = new System.Drawing.Point(229, 233);
             this.dtpDateOfBitrh.Name = "dtpDateOfBitrh";
-            this.dtpDateOfBitrh.Size = new System.Drawing.Size(157, 27);
-            this.dtpDateOfBitrh.TabIndex = 36;
+            this.dtpDateOfBitrh.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.dtpDateOfBitrh.Size = new System.Drawing.Size(190, 27);
+            this.dtpDateOfBitrh.TabIndex = 8;
             this.dtpDateOfBitrh.Value = new System.DateTime(2026, 9, 24, 0, 0, 0, 0);
             // 
             // label9
             // 
             this.label9.AutoSize = true;
             this.label9.Font = new System.Drawing.Font("Tahoma", 14F);
-            this.label9.Location = new System.Drawing.Point(489, 207);
+            this.label9.Location = new System.Drawing.Point(279, 207);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(119, 23);
+            this.label9.Size = new System.Drawing.Size(103, 23);
             this.label9.TabIndex = 35;
-            this.label9.Text = "Date Of Birth";
+            this.label9.Text = "تاريخ الميلاد";
             // 
             // txtEmail
             // 
             this.txtEmail.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtEmail.Font = new System.Drawing.Font("Tahoma", 12F);
-            this.txtEmail.Location = new System.Drawing.Point(205, 233);
+            this.txtEmail.Location = new System.Drawing.Point(451, 233);
             this.txtEmail.MaxLength = 50;
             this.txtEmail.Name = "txtEmail";
-            this.txtEmail.Size = new System.Drawing.Size(191, 27);
-            this.txtEmail.TabIndex = 34;
+            this.txtEmail.Size = new System.Drawing.Size(190, 27);
+            this.txtEmail.TabIndex = 7;
             // 
             // label8
             // 
             this.label8.AutoSize = true;
             this.label8.Font = new System.Drawing.Font("Tahoma", 14F);
-            this.label8.Location = new System.Drawing.Point(274, 207);
+            this.label8.Location = new System.Drawing.Point(487, 207);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(55, 23);
+            this.label8.Size = new System.Drawing.Size(135, 23);
             this.label8.TabIndex = 33;
-            this.label8.Text = "Email";
+            this.label8.Text = "البريد الالكتروني";
             // 
             // txtPhone
             // 
             this.txtPhone.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtPhone.Font = new System.Drawing.Font("Tahoma", 12F);
-            this.txtPhone.Location = new System.Drawing.Point(17, 233);
+            this.txtPhone.Location = new System.Drawing.Point(664, 233);
             this.txtPhone.MaxLength = 10;
             this.txtPhone.Name = "txtPhone";
-            this.txtPhone.Size = new System.Drawing.Size(157, 27);
-            this.txtPhone.TabIndex = 32;
+            this.txtPhone.Size = new System.Drawing.Size(190, 27);
+            this.txtPhone.TabIndex = 6;
             this.txtPhone.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtDigit);
             this.txtPhone.Validating += new System.ComponentModel.CancelEventHandler(this.txtEmpty_Validating);
             // 
@@ -113,17 +114,17 @@
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Tahoma", 14F);
-            this.label4.Location = new System.Drawing.Point(52, 207);
+            this.label4.Location = new System.Drawing.Point(723, 207);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(62, 23);
+            this.label4.Size = new System.Drawing.Size(92, 23);
             this.label4.TabIndex = 31;
-            this.label4.Text = "Phone";
+            this.label4.Text = "رقم الجوال";
             // 
             // lblPersonID
             // 
             this.lblPersonID.AutoSize = true;
             this.lblPersonID.Font = new System.Drawing.Font("Tahoma", 14F);
-            this.lblPersonID.Location = new System.Drawing.Point(140, 99);
+            this.lblPersonID.Location = new System.Drawing.Point(687, 99);
             this.lblPersonID.Name = "lblPersonID";
             this.lblPersonID.Size = new System.Drawing.Size(51, 23);
             this.lblPersonID.TabIndex = 30;
@@ -133,11 +134,11 @@
             // 
             this.txtNationalID.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtNationalID.Font = new System.Drawing.Font("Tahoma", 12F);
-            this.txtNationalID.Location = new System.Drawing.Point(132, 43);
+            this.txtNationalID.Location = new System.Drawing.Point(542, 47);
             this.txtNationalID.MaxLength = 10;
             this.txtNationalID.Name = "txtNationalID";
-            this.txtNationalID.Size = new System.Drawing.Size(157, 27);
-            this.txtNationalID.TabIndex = 29;
+            this.txtNationalID.Size = new System.Drawing.Size(190, 27);
+            this.txtNationalID.TabIndex = 1;
             this.txtNationalID.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtDigit);
             this.txtNationalID.Validating += new System.ComponentModel.CancelEventHandler(this.txtNationalID_Validating);
             // 
@@ -145,11 +146,11 @@
             // 
             this.txtLastName.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtLastName.Font = new System.Drawing.Font("Tahoma", 12F);
-            this.txtLastName.Location = new System.Drawing.Point(580, 135);
+            this.txtLastName.Location = new System.Drawing.Point(6, 135);
             this.txtLastName.MaxLength = 20;
             this.txtLastName.Name = "txtLastName";
-            this.txtLastName.Size = new System.Drawing.Size(157, 27);
-            this.txtLastName.TabIndex = 28;
+            this.txtLastName.Size = new System.Drawing.Size(190, 27);
+            this.txtLastName.TabIndex = 5;
             this.txtLastName.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtAlphabet);
             this.txtLastName.Validating += new System.ComponentModel.CancelEventHandler(this.txtEmpty_Validating);
             // 
@@ -157,42 +158,42 @@
             // 
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Tahoma", 14F);
-            this.label7.Location = new System.Drawing.Point(606, 109);
+            this.label7.Location = new System.Drawing.Point(74, 109);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(98, 23);
+            this.label7.Size = new System.Drawing.Size(58, 23);
             this.label7.TabIndex = 27;
-            this.label7.Text = "Last Name";
+            this.label7.Text = "العائلة";
             // 
             // txtThirdName
             // 
             this.txtThirdName.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtThirdName.Font = new System.Drawing.Font("Tahoma", 12F);
-            this.txtThirdName.Location = new System.Drawing.Point(393, 135);
+            this.txtThirdName.Location = new System.Drawing.Point(229, 135);
             this.txtThirdName.MaxLength = 20;
             this.txtThirdName.Name = "txtThirdName";
-            this.txtThirdName.Size = new System.Drawing.Size(157, 27);
-            this.txtThirdName.TabIndex = 26;
+            this.txtThirdName.Size = new System.Drawing.Size(190, 27);
+            this.txtThirdName.TabIndex = 4;
             this.txtThirdName.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtAlphabet);
             // 
             // label6
             // 
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Tahoma", 14F);
-            this.label6.Location = new System.Drawing.Point(413, 109);
+            this.label6.Location = new System.Drawing.Point(301, 109);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(109, 23);
+            this.label6.Size = new System.Drawing.Size(43, 23);
             this.label6.TabIndex = 25;
-            this.label6.Text = "Third Name";
+            this.label6.Text = "الجد";
             // 
             // txtSecondName
             // 
             this.txtSecondName.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtSecondName.Font = new System.Drawing.Font("Tahoma", 12F);
-            this.txtSecondName.Location = new System.Drawing.Point(205, 135);
+            this.txtSecondName.Location = new System.Drawing.Point(451, 135);
             this.txtSecondName.MaxLength = 20;
             this.txtSecondName.Name = "txtSecondName";
-            this.txtSecondName.Size = new System.Drawing.Size(157, 27);
-            this.txtSecondName.TabIndex = 24;
+            this.txtSecondName.Size = new System.Drawing.Size(190, 27);
+            this.txtSecondName.TabIndex = 3;
             this.txtSecondName.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtAlphabet);
             this.txtSecondName.Validating += new System.ComponentModel.CancelEventHandler(this.txtEmpty_Validating);
             // 
@@ -200,21 +201,21 @@
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Tahoma", 14F);
-            this.label5.Location = new System.Drawing.Point(219, 109);
+            this.label5.Location = new System.Drawing.Point(527, 109);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(127, 23);
+            this.label5.Size = new System.Drawing.Size(42, 23);
             this.label5.TabIndex = 23;
-            this.label5.Text = "Second Name";
+            this.label5.Text = "الاب";
             // 
             // txtFirstName
             // 
             this.txtFirstName.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtFirstName.Font = new System.Drawing.Font("Tahoma", 12F);
-            this.txtFirstName.Location = new System.Drawing.Point(17, 135);
+            this.txtFirstName.Location = new System.Drawing.Point(664, 135);
             this.txtFirstName.MaxLength = 20;
             this.txtFirstName.Name = "txtFirstName";
-            this.txtFirstName.Size = new System.Drawing.Size(157, 27);
-            this.txtFirstName.TabIndex = 22;
+            this.txtFirstName.Size = new System.Drawing.Size(190, 27);
+            this.txtFirstName.TabIndex = 2;
             this.txtFirstName.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtAlphabet);
             this.txtFirstName.Validating += new System.ComponentModel.CancelEventHandler(this.txtEmpty_Validating);
             // 
@@ -222,31 +223,32 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Tahoma", 14F);
-            this.label3.Location = new System.Drawing.Point(43, 109);
+            this.label3.Location = new System.Drawing.Point(710, 109);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(100, 23);
+            this.label3.Size = new System.Drawing.Size(102, 23);
             this.label3.TabIndex = 21;
-            this.label3.Text = "First Name";
+            this.label3.Text = "الاسم الاول";
             // 
             // label2
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Tahoma", 14F);
-            this.label2.Location = new System.Drawing.Point(9, 43);
+            this.label2.Location = new System.Drawing.Point(738, 47);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(104, 23);
+            this.label2.Size = new System.Drawing.Size(116, 23);
             this.label2.TabIndex = 20;
-            this.label2.Text = "National ID";
+            this.label2.Text = "الهوية الوطنية";
             // 
             // label1
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Tahoma", 14F);
-            this.label1.Location = new System.Drawing.Point(12, 99);
+            this.label1.Location = new System.Drawing.Point(744, 99);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(105, 23);
+            this.label1.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.label1.Size = new System.Drawing.Size(132, 23);
             this.label1.TabIndex = 19;
-            this.label1.Text = "Person ID :";
+            this.label1.Text = "معرف الشخص:";
             // 
             // groupBox1
             // 
@@ -268,41 +270,41 @@
             this.groupBox1.Controls.Add(this.txtLastName);
             this.groupBox1.Location = new System.Drawing.Point(12, 125);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(743, 290);
+            this.groupBox1.Size = new System.Drawing.Size(860, 290);
             this.groupBox1.TabIndex = 37;
             this.groupBox1.TabStop = false;
             // 
             // lblMode
             // 
             this.lblMode.AutoSize = true;
-            this.lblMode.Font = new System.Drawing.Font("Tahoma", 36F);
-            this.lblMode.Location = new System.Drawing.Point(198, 9);
+            this.lblMode.Font = new System.Drawing.Font("Tahoma", 30F);
+            this.lblMode.Location = new System.Drawing.Point(269, 9);
             this.lblMode.Name = "lblMode";
-            this.lblMode.Size = new System.Drawing.Size(373, 58);
+            this.lblMode.Size = new System.Drawing.Size(331, 48);
             this.lblMode.TabIndex = 38;
-            this.lblMode.Text = "Add New Person";
+            this.lblMode.Text = "اضافة شخص جديد";
             // 
             // btnSave
             // 
             this.btnSave.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnSave.Font = new System.Drawing.Font("Tahoma", 12F);
-            this.btnSave.Location = new System.Drawing.Point(635, 421);
+            this.btnSave.Font = new System.Drawing.Font("Tahoma", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSave.Location = new System.Drawing.Point(782, 424);
             this.btnSave.Name = "btnSave";
-            this.btnSave.Size = new System.Drawing.Size(120, 37);
-            this.btnSave.TabIndex = 39;
-            this.btnSave.Text = "Save";
+            this.btnSave.Size = new System.Drawing.Size(90, 35);
+            this.btnSave.TabIndex = 10;
+            this.btnSave.Text = "حفظ";
             this.btnSave.UseVisualStyleBackColor = true;
             this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
             // 
             // btnClose
             // 
             this.btnClose.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnClose.Font = new System.Drawing.Font("Tahoma", 12F);
-            this.btnClose.Location = new System.Drawing.Point(509, 422);
+            this.btnClose.Font = new System.Drawing.Font("Tahoma", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnClose.Location = new System.Drawing.Point(686, 424);
             this.btnClose.Name = "btnClose";
-            this.btnClose.Size = new System.Drawing.Size(120, 36);
-            this.btnClose.TabIndex = 40;
-            this.btnClose.Text = "Close";
+            this.btnClose.Size = new System.Drawing.Size(90, 35);
+            this.btnClose.TabIndex = 9;
+            this.btnClose.Text = "الغاء";
             this.btnClose.UseVisualStyleBackColor = true;
             this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
             // 
@@ -315,7 +317,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(773, 472);
+            this.ClientSize = new System.Drawing.Size(884, 471);
             this.Controls.Add(this.btnClose);
             this.Controls.Add(this.btnSave);
             this.Controls.Add(this.lblMode);
