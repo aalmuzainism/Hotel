@@ -42,7 +42,23 @@ namespace HotelPresentationLayer.Reservations
 
         private void dtpCheckInDate_ValueChanged(object sender, EventArgs e)
         {
-            dtpCheckOutDate.MinDate = dtpCheckInDate.Value.AddDays(1);
+            if (DateTime.Now.ToShortDateString() == dtpCheckInDate.Value.ToShortDateString())
+            {
+                string DateAfterِAddingTwelveHours = DateTime.Now.AddHours(12).ToShortDateString();
+
+                if (dtpCheckInDate.Value.ToShortDateString() == DateAfterِAddingTwelveHours)
+                {
+                    dtpCheckOutDate.MinDate = dtpCheckInDate.Value;
+                }
+                else
+                {
+                    dtpCheckOutDate.MinDate = dtpCheckInDate.Value.AddDays(1);
+                }
+            }
+            else
+            {
+                dtpCheckOutDate.MinDate = dtpCheckInDate.Value.AddDays(1);
+            }
 
             if (clsReservationRooms.IsReservationRoomWithDateByRoomNumber(_RoomNumber, dtpCheckInDate.Value, dtpCheckOutDate.Value))
             {
