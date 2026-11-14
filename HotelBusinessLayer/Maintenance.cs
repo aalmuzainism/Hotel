@@ -56,6 +56,7 @@ namespace HotelBusinessLayer
                 return null;
             }
         }
+
         public static clsMaintenance GetMaintenanceInfoByRoomID(int RoomID)
         {
             int MaintenanceID = -1;
@@ -91,6 +92,7 @@ namespace HotelBusinessLayer
 
             return clsMaintenanceData.MaintenanceComplete(this.MaintenanceID);
         }
+
         public bool MaintenanceCancel()
         {
             if (this.Status == 2) // 2 = Completed
@@ -112,6 +114,16 @@ namespace HotelBusinessLayer
         public static DataTable GetAllMaintenance()
         {
             return clsMaintenanceData.GetAllMaintenance();
+        }
+
+        public static DataTable GetAllRoomsNotNeedMaintenance()
+        {
+            return clsMaintenanceData.GetAllRoomsNotNeedMaintenance();
+        }
+
+        public static DataTable GetAllRoomsNeedMaintenance()
+        {
+            return clsMaintenanceData.GetAllRoomsNeedMaintenance();
         }
 
         public static bool DoesRoomNeedMaintenance(int RoomID)
