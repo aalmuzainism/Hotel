@@ -246,6 +246,81 @@ namespace Hotel_DataAccess
             return isFound;
         }
 
+        public static DataTable GetAllRoomsNotNeedMaintenance()
+        {
+            DataTable dt = new DataTable();
+
+            SqlConnection connection = new SqlConnection(clsDataAccessSetings.ConnectionString);
+
+            string qeury = @"SELECT Rooms.RoomID FROM Rooms
+                             WHERE NOT EXISTS 
+                             (
+                                SELECT 1 FROM Maintenance
+                                WHERE Rooms.RoomID = Maintenance.RoomID AND Maintenance.Status = 1
+                             )";
+
+            SqlCommand command = new SqlCommand(qeury, connection);
+
+            try
+            {
+                connection.Open();
+
+                SqlDataReader reader = command.ExecuteReader();
+
+                if (reader.HasRows)
+                {
+                    dt.Load(reader);
+                }
+
+                reader.Close();
+            }
+            catch (Exception ex)
+            {
+                // Console.WriteLine("Error: " + ex.Message);
+            }
+            finally
+            {
+                connection.Close();
+            }
+
+            return dt;
+        }
+
+        public static DataTable GetAllRoomsNeedMaintenance()
+        {
+            DataTable dt = new DataTable();
+
+            SqlConnection connection = new SqlConnection(clsDataAccessSetings.ConnectionString);
+
+            string qeury = "SELECT Maintenance.RoomID FROM Maintenance WHERE Maintenance.Status = 1";
+
+            SqlCommand command = new SqlCommand(qeury, connection);
+
+            try
+            {
+                connection.Open();
+
+                SqlDataReader reader = command.ExecuteReader();
+
+                if (reader.HasRows)
+                {
+                    dt.Load(reader);
+                }
+
+                reader.Close();
+            }
+            catch (Exception ex)
+            {
+                // Console.WriteLine("Error: " + ex.Message);
+            }
+            finally
+            {
+                connection.Close();
+            }
+
+            return dt;
+        }
+
         public static DataTable GetAllMaintenance()
         {
             DataTable dt = new DataTable();

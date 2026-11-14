@@ -25,6 +25,7 @@ namespace HotelPresentationLayer.Maintenance
 
         private void frmListMaintenance_Load(object sender, EventArgs e)
         {
+            cbFilterMaintenance.SelectedIndex = 0;
             _ListRefresh();
         }
 
@@ -146,6 +147,46 @@ namespace HotelPresentationLayer.Maintenance
         private void btnClose_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void cbFilterMaintenance_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if(cbFilterMaintenance.SelectedIndex == 0)
+            {
+                _ListRefresh();
+            }
+            else if(cbFilterMaintenance.SelectedIndex == 1)
+            {
+
+                DataTable dt = clsMaintenance.GetAllRoomsNeedMaintenance();
+
+                flpListMaintenance.Controls.Clear();
+
+                foreach (DataRow row in dt.Rows)
+                {
+                    ctrCardRoomDetails RoomCard = new ctrCardRoomDetails();
+                    RoomCard.LoadRoomInfoByRoomID(Convert.ToInt32(row["RoomID"]));
+                    RoomCard.DataBack += DataBack;
+
+                    flpListMaintenance.Controls.Add(RoomCard);
+                }
+
+            }
+            else if(cbFilterMaintenance.SelectedIndex == 2)
+            {
+                DataTable dt = clsMaintenance.GetAllRoomsNotNeedMaintenance();
+
+                flpListMaintenance.Controls.Clear();
+
+                foreach(DataRow row in dt.Rows)
+                {
+                    ctrCardRoomDetails RoomCard = new ctrCardRoomDetails();
+                    RoomCard.LoadRoomInfoByRoomID(Convert.ToInt32(row["RoomID"]));
+                    RoomCard.DataBack += DataBack;
+
+                    flpListMaintenance.Controls.Add(RoomCard);
+                }
+            }
         }
     }
 }

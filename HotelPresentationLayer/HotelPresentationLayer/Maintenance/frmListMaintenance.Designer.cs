@@ -47,10 +47,15 @@
             this.cbFilterMaintenance.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbFilterMaintenance.Font = new System.Drawing.Font("Tahoma", 12F);
             this.cbFilterMaintenance.FormattingEnabled = true;
+            this.cbFilterMaintenance.Items.AddRange(new object[] {
+            "الكل",
+            "بحاجة الى صيانة",
+            "ليست بحاجة الى صيانة"});
             this.cbFilterMaintenance.Location = new System.Drawing.Point(1298, 384);
             this.cbFilterMaintenance.Name = "cbFilterMaintenance";
             this.cbFilterMaintenance.Size = new System.Drawing.Size(190, 27);
             this.cbFilterMaintenance.TabIndex = 13;
+            this.cbFilterMaintenance.SelectedIndexChanged += new System.EventHandler(this.cbFilterMaintenance_SelectedIndexChanged);
             // 
             // btnClose
             // 
@@ -83,14 +88,14 @@
             this.toolStripMenuItem1,
             this.canselToolStripMenuItem});
             this.contextMenuStrip1.Name = "contextMenuStrip1";
-            this.contextMenuStrip1.Size = new System.Drawing.Size(291, 106);
+            this.contextMenuStrip1.Size = new System.Drawing.Size(187, 106);
             this.contextMenuStrip1.Opening += new System.ComponentModel.CancelEventHandler(this.contextMenuStrip1_Opening);
             // 
             // addMaintenaceToolStripMenuItem
             // 
             this.addMaintenaceToolStripMenuItem.Name = "addMaintenaceToolStripMenuItem";
-            this.addMaintenaceToolStripMenuItem.Size = new System.Drawing.Size(290, 30);
-            this.addMaintenaceToolStripMenuItem.Text = "Add/Update Maintenace";
+            this.addMaintenaceToolStripMenuItem.Size = new System.Drawing.Size(186, 30);
+            this.addMaintenaceToolStripMenuItem.Text = "اضافة/تعديل";
             this.addMaintenaceToolStripMenuItem.Click += new System.EventHandler(this.addMaintenaceToolStripMenuItem_Click);
             // 
             // toolStripMenuItem2
@@ -101,8 +106,8 @@
             // maintenanceCompletedToolStripMenuItem
             // 
             this.maintenanceCompletedToolStripMenuItem.Name = "maintenanceCompletedToolStripMenuItem";
-            this.maintenanceCompletedToolStripMenuItem.Size = new System.Drawing.Size(290, 30);
-            this.maintenanceCompletedToolStripMenuItem.Text = "Maintenance completed";
+            this.maintenanceCompletedToolStripMenuItem.Size = new System.Drawing.Size(186, 30);
+            this.maintenanceCompletedToolStripMenuItem.Text = "انهاء";
             this.maintenanceCompletedToolStripMenuItem.Click += new System.EventHandler(this.maintenanceCompletedToolStripMenuItem_Click);
             // 
             // toolStripMenuItem1
@@ -113,8 +118,8 @@
             // canselToolStripMenuItem
             // 
             this.canselToolStripMenuItem.Name = "canselToolStripMenuItem";
-            this.canselToolStripMenuItem.Size = new System.Drawing.Size(290, 30);
-            this.canselToolStripMenuItem.Text = "Cancel";
+            this.canselToolStripMenuItem.Size = new System.Drawing.Size(186, 30);
+            this.canselToolStripMenuItem.Text = "الغاء";
             this.canselToolStripMenuItem.Click += new System.EventHandler(this.canselToolStripMenuItem_Click);
             // 
             // label1
