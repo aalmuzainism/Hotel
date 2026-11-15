@@ -110,6 +110,11 @@ namespace HotelBusinessLayer
             return clsPaymentsData.GetAllPayments();
         }
 
+        public static double GetTotalAmountByReservationID(int ReservationID)
+        {
+            return clsPaymentsData.GetTotalAmountByReservationID(ReservationID);
+        }
+
         public bool Save()
         {
 

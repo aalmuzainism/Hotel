@@ -116,7 +116,7 @@ namespace HotelPresentationLayer.Reservations
 
         private void btnSave_Click(object sender, EventArgs e)
         {
-
+   
             if (clsReservationRooms.IsReservationRoomWithDateByRoomNumber(_RoomNumber, dtpCheckInDate.Value, dtpCheckOutDate.Value))
             {
                 clsReservationRooms Temp = clsReservationRooms.GetReservationRoomWithDateByRoomNumber(clsRooms.GetRoomInfoByRoomNumber(_RoomNumber).RoomID, dtpCheckInDate.Value, dtpCheckOutDate.Value);
@@ -182,7 +182,7 @@ namespace HotelPresentationLayer.Reservations
             {
                 MessageBox.Show("Error In ReservationRoom");
             }
-
+            
         }
     }
 }

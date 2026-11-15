@@ -1119,5 +1119,43 @@ namespace Hotel_DataAccess
             return dt;
         }
 
+        public static int GetCountReservationRoomByReservationID(int ReservationID)
+        {
+            int ReservationRoomID = -1;
+
+            using (SqlConnection connection = new SqlConnection(clsDataAccessSetings.ConnectionString))
+            {
+                string query = @"SELECT COUNT(ReservationRooms.ReservationRoomID) from ReservationRooms
+                             WHERE ReservationRooms.ReservationID = @ReservationID AND ReservationRooms.Status = 1;
+                            SELECT SCOPE_IDENTITY();";
+
+                using (SqlCommand command = new SqlCommand(query, connection))
+                {
+                    command.Parameters.AddWithValue("@ReservationID", ReservationID);
+                    try
+                    {
+                        connection.Open();
+
+                        object result = command.ExecuteScalar();
+
+                        if (result != null && int.TryParse(result.ToString(), out int insertedID))
+                        {
+                            ReservationRoomID = insertedID;
+                        }
+
+
+                    }
+                    catch (Exception ex)
+                    {
+                        //Console.WriteLine("Error: " + ex.Message);
+                    }
+
+
+                }
+
+            }
+            return ReservationRoomID;
+
+        }
     }
 }

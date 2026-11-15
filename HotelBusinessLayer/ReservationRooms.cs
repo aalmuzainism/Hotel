@@ -78,6 +78,23 @@ namespace HotelBusinessLayer
                 return null;
             }
         }
+        public static clsReservationRooms GetReservationRoomInfoByReservationID(int ReservationID)
+        {
+            int ReservationRoomID = -1, RoomID = -1, CheckInBy = -1, CheckOutBy = -1;
+            byte Status = 0;
+            DateTime CheckInDate = DateTime.Now, CheckOutDate = DateTime.Now, ActualCheckOutDate = DateTime.MaxValue;
+
+            if (clsReservationRoomsData.GetReservationRoomInfoByReservationID(ReservationID, ref ReservationRoomID, ref RoomID, ref CheckInDate, ref CheckInBy,
+                                                    ref CheckOutDate, ref ActualCheckOutDate, ref CheckOutBy, ref Status))
+            {
+                return new clsReservationRooms(ReservationRoomID, ReservationID, RoomID, CheckInDate, CheckInBy,
+                                                           CheckOutDate, ActualCheckOutDate, CheckOutBy, Status);
+            }
+            else
+            {
+                return null;
+            }
+        }
 
         public static clsReservationRooms GetReservationRoomWithDateByRoomNumber(int RoomID, DateTime CheckInDate, DateTime CheckOutDate)
         {
@@ -253,6 +270,11 @@ namespace HotelBusinessLayer
         public static DataTable GetAllReservationRoomsForPersonByNationalID(string NationalID)
         {
             return clsReservationRoomsData.GetAllReservationRoomsForPersonByNationalID(NationalID);
+        }
+
+        public static int GetCountReservationRoomByReservationID(int ReservationID)
+        {
+            return clsReservationRoomsData.GetCountReservationRoomByReservationID(ReservationID);
         }
 
         public bool Save()

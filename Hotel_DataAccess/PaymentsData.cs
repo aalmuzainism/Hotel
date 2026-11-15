@@ -5,6 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Data;
+using System.Linq.Expressions;
 
 namespace Hotel_DataAccess
 {
@@ -319,6 +320,43 @@ namespace Hotel_DataAccess
             return dt;
         }
 
+        public static double GetTotalAmountByReservationID(int ReservationID)
+        {
+            double TotalAmount = 0;
+            using (SqlConnection connection = new SqlConnection(clsDataAccessSetings.ConnectionString))
+            {
+                string qeury = @"SELECT SUM(Rooms.Price) FROM ReservationRooms
+                                 INNER JOIN Rooms ON ReservationRooms.RoomID = Rooms.RoomID
+                                 WHERE ReservationRooms.ReservationID = @ReservationID AND ReservationRooms.Status = 1;
+                                 SELECT SCOPE_IDENTITY();";
+
+                using (SqlCommand command = new SqlCommand(qeury, connection))
+                {
+
+                    command.Parameters.AddWithValue("@ReservationID", ReservationID);
+
+                    try
+                    {
+                        connection.Open();
+
+                        object result = command.ExecuteScalar();
+
+                        if (result != null && double.TryParse(result.ToString(), out double TPAmount))
+                        {
+                            TotalAmount = TPAmount;
+                        }
+                    }
+                    catch (Exception ex)
+                    {
+                        //Console.WriteLine(ex);
+                    }
+                }
+
+
+            }
+
+            return TotalAmount;
+        }
 
     }
 }
