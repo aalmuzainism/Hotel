@@ -381,7 +381,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.White;
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(36)))), ((int)(((byte)(58)))));
             this.ClientSize = new System.Drawing.Size(513, 612);
             this.Controls.Add(this.cbKitchenetteCount);
             this.Controls.Add(this.cbFullCithcenCount);
@@ -408,6 +408,7 @@
             this.Controls.Add(this.label3);
             this.Controls.Add(this.lblRoomID);
             this.Controls.Add(this.label1);
+            this.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(212)))), ((int)(((byte)(175)))), ((int)(((byte)(101)))));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Name = "frmAddUpdateRooms";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;

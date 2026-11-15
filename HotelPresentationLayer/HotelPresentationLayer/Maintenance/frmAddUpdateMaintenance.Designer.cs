@@ -48,6 +48,7 @@
             // 
             this.lblMaintenanceID.AutoSize = true;
             this.lblMaintenanceID.Font = new System.Drawing.Font("Tahoma", 14F);
+            this.lblMaintenanceID.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(212)))), ((int)(((byte)(175)))), ((int)(((byte)(101)))));
             this.lblMaintenanceID.Location = new System.Drawing.Point(242, 114);
             this.lblMaintenanceID.Name = "lblMaintenanceID";
             this.lblMaintenanceID.Size = new System.Drawing.Size(63, 23);
@@ -58,6 +59,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Tahoma", 14F);
+            this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(212)))), ((int)(((byte)(175)))), ((int)(((byte)(101)))));
             this.label1.Location = new System.Drawing.Point(311, 114);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(121, 23);
@@ -68,6 +70,7 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Tahoma", 28F);
+            this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(212)))), ((int)(((byte)(175)))), ((int)(((byte)(101)))));
             this.label2.Location = new System.Drawing.Point(146, 9);
             this.label2.Name = "label2";
             this.label2.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
@@ -79,6 +82,7 @@
             // 
             this.lblRoomID.AutoSize = true;
             this.lblRoomID.Font = new System.Drawing.Font("Tahoma", 14F);
+            this.lblRoomID.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(212)))), ((int)(((byte)(175)))), ((int)(((byte)(101)))));
             this.lblRoomID.Location = new System.Drawing.Point(242, 177);
             this.lblRoomID.Name = "lblRoomID";
             this.lblRoomID.Size = new System.Drawing.Size(63, 23);
@@ -89,6 +93,7 @@
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Tahoma", 14F);
+            this.label4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(212)))), ((int)(((byte)(175)))), ((int)(((byte)(101)))));
             this.label4.Location = new System.Drawing.Point(315, 177);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(117, 23);
@@ -99,6 +104,7 @@
             // 
             this.lblRoomNumber.AutoSize = true;
             this.lblRoomNumber.Font = new System.Drawing.Font("Tahoma", 14F);
+            this.lblRoomNumber.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(212)))), ((int)(((byte)(175)))), ((int)(((byte)(101)))));
             this.lblRoomNumber.Location = new System.Drawing.Point(242, 240);
             this.lblRoomNumber.Name = "lblRoomNumber";
             this.lblRoomNumber.Size = new System.Drawing.Size(63, 23);
@@ -109,6 +115,7 @@
             // 
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Tahoma", 14F);
+            this.label6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(212)))), ((int)(((byte)(175)))), ((int)(((byte)(101)))));
             this.label6.Location = new System.Drawing.Point(331, 240);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(101, 23);
@@ -119,6 +126,7 @@
             // 
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Tahoma", 14F);
+            this.label7.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(212)))), ((int)(((byte)(175)))), ((int)(((byte)(101)))));
             this.label7.Location = new System.Drawing.Point(366, 303);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(66, 23);
@@ -141,9 +149,10 @@
             // 
             this.btnSave.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnSave.Font = new System.Drawing.Font("Tahoma", 14F);
-            this.btnSave.Location = new System.Drawing.Point(331, 440);
+            this.btnSave.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(212)))), ((int)(((byte)(175)))), ((int)(((byte)(101)))));
+            this.btnSave.Location = new System.Drawing.Point(342, 440);
             this.btnSave.Name = "btnSave";
-            this.btnSave.Size = new System.Drawing.Size(101, 34);
+            this.btnSave.Size = new System.Drawing.Size(90, 35);
             this.btnSave.TabIndex = 22;
             this.btnSave.Text = "حفظ";
             this.btnSave.UseVisualStyleBackColor = true;
@@ -153,9 +162,10 @@
             // 
             this.btnClose.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnClose.Font = new System.Drawing.Font("Tahoma", 14F);
-            this.btnClose.Location = new System.Drawing.Point(224, 440);
+            this.btnClose.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(212)))), ((int)(((byte)(175)))), ((int)(((byte)(101)))));
+            this.btnClose.Location = new System.Drawing.Point(242, 440);
             this.btnClose.Name = "btnClose";
-            this.btnClose.Size = new System.Drawing.Size(101, 34);
+            this.btnClose.Size = new System.Drawing.Size(90, 35);
             this.btnClose.TabIndex = 23;
             this.btnClose.Text = "الغاء";
             this.btnClose.UseVisualStyleBackColor = true;
@@ -169,7 +179,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.White;
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(36)))), ((int)(((byte)(58)))));
             this.ClientSize = new System.Drawing.Size(444, 486);
             this.Controls.Add(this.btnClose);
             this.Controls.Add(this.btnSave);

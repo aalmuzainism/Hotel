@@ -36,9 +36,10 @@
             // 
             this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button1.Font = new System.Drawing.Font("Tahoma", 14F);
-            this.button1.Location = new System.Drawing.Point(391, 347);
+            this.button1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(212)))), ((int)(((byte)(175)))), ((int)(((byte)(101)))));
+            this.button1.Location = new System.Drawing.Point(384, 347);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(83, 34);
+            this.button1.Size = new System.Drawing.Size(90, 35);
             this.button1.TabIndex = 1;
             this.button1.Text = "اغلاق";
             this.button1.UseVisualStyleBackColor = true;
@@ -46,7 +47,7 @@
             // 
             // ctrReservationRoomDetails1
             // 
-            this.ctrReservationRoomDetails1.BackColor = System.Drawing.Color.White;
+            this.ctrReservationRoomDetails1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(36)))), ((int)(((byte)(58)))));
             this.ctrReservationRoomDetails1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.ctrReservationRoomDetails1.Location = new System.Drawing.Point(12, 12);
             this.ctrReservationRoomDetails1.Name = "ctrReservationRoomDetails1";
@@ -57,7 +58,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.White;
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(36)))), ((int)(((byte)(58)))));
             this.ClientSize = new System.Drawing.Size(487, 392);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.ctrReservationRoomDetails1);

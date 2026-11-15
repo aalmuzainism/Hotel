@@ -36,10 +36,9 @@
             this.deletePersonToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.label1 = new System.Windows.Forms.Label();
             this.btnClose = new System.Windows.Forms.Button();
-            this.pbAddNewPerson = new System.Windows.Forms.PictureBox();
+            this.btnAddNewPerson = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvListPeople)).BeginInit();
             this.contextMenuStrip1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pbAddNewPerson)).BeginInit();
             this.SuspendLayout();
             // 
             // dgvListPeople
@@ -93,7 +92,8 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Tahoma", 30F);
-            this.label1.Location = new System.Drawing.Point(610, 9);
+            this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(212)))), ((int)(((byte)(175)))), ((int)(((byte)(101)))));
+            this.label1.Location = new System.Drawing.Point(615, 21);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(263, 48);
             this.label1.TabIndex = 1;
@@ -103,6 +103,7 @@
             // 
             this.btnClose.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnClose.Font = new System.Drawing.Font("Tahoma", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnClose.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(212)))), ((int)(((byte)(175)))), ((int)(((byte)(101)))));
             this.btnClose.Location = new System.Drawing.Point(1398, 723);
             this.btnClose.Name = "btnClose";
             this.btnClose.Size = new System.Drawing.Size(90, 35);
@@ -111,25 +112,26 @@
             this.btnClose.UseVisualStyleBackColor = true;
             this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
             // 
-            // pbAddNewPerson
+            // btnAddNewPerson
             // 
-            this.pbAddNewPerson.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pbAddNewPerson.Image = global::HotelPresentationLayer.Properties.Resources.Add_Person_72;
-            this.pbAddNewPerson.Location = new System.Drawing.Point(1398, 366);
-            this.pbAddNewPerson.Name = "pbAddNewPerson";
-            this.pbAddNewPerson.Size = new System.Drawing.Size(90, 45);
-            this.pbAddNewPerson.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pbAddNewPerson.TabIndex = 5;
-            this.pbAddNewPerson.TabStop = false;
-            this.pbAddNewPerson.Click += new System.EventHandler(this.pbAddNewPerson_Click);
+            this.btnAddNewPerson.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnAddNewPerson.Font = new System.Drawing.Font("Tahoma", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAddNewPerson.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(212)))), ((int)(((byte)(175)))), ((int)(((byte)(101)))));
+            this.btnAddNewPerson.Location = new System.Drawing.Point(1398, 376);
+            this.btnAddNewPerson.Name = "btnAddNewPerson";
+            this.btnAddNewPerson.Size = new System.Drawing.Size(90, 35);
+            this.btnAddNewPerson.TabIndex = 7;
+            this.btnAddNewPerson.Text = "اضافة";
+            this.btnAddNewPerson.UseVisualStyleBackColor = true;
+            this.btnAddNewPerson.Click += new System.EventHandler(this.btnAddNewPerson_Click);
             // 
             // frmListPeople
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.White;
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(36)))), ((int)(((byte)(58)))));
             this.ClientSize = new System.Drawing.Size(1500, 770);
-            this.Controls.Add(this.pbAddNewPerson);
+            this.Controls.Add(this.btnAddNewPerson);
             this.Controls.Add(this.btnClose);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.dgvListPeople);
@@ -140,7 +142,6 @@
             this.Load += new System.EventHandler(this.frmListPeople_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvListPeople)).EndInit();
             this.contextMenuStrip1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.pbAddNewPerson)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -155,6 +156,6 @@
         private System.Windows.Forms.ToolStripMenuItem showDetailsToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem updatePersonToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem deletePersonToolStripMenuItem;
-        private System.Windows.Forms.PictureBox pbAddNewPerson;
+        private System.Windows.Forms.Button btnAddNewPerson;
     }
 }
