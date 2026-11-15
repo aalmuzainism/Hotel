@@ -34,7 +34,7 @@
             // 
             // ctrRoomDetails1
             // 
-            this.ctrRoomDetails1.BackColor = System.Drawing.Color.White;
+            this.ctrRoomDetails1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(36)))), ((int)(((byte)(58)))));
             this.ctrRoomDetails1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.ctrRoomDetails1.Location = new System.Drawing.Point(12, 12);
             this.ctrRoomDetails1.Name = "ctrRoomDetails1";
@@ -46,11 +46,11 @@
             // 
             this.btnClose.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnClose.Font = new System.Drawing.Font("Tahoma", 12F);
-            this.btnClose.Location = new System.Drawing.Point(371, 545);
+            this.btnClose.Location = new System.Drawing.Point(366, 545);
             this.btnClose.Name = "btnClose";
-            this.btnClose.Size = new System.Drawing.Size(85, 41);
+            this.btnClose.Size = new System.Drawing.Size(90, 35);
             this.btnClose.TabIndex = 1;
-            this.btnClose.Text = "Close";
+            this.btnClose.Text = "اغلاق";
             this.btnClose.UseVisualStyleBackColor = true;
             this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
             // 
@@ -58,10 +58,11 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(466, 598);
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(36)))), ((int)(((byte)(58)))));
+            this.ClientSize = new System.Drawing.Size(466, 590);
             this.Controls.Add(this.btnClose);
             this.Controls.Add(this.ctrRoomDetails1);
+            this.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(212)))), ((int)(((byte)(175)))), ((int)(((byte)(101)))));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Name = "frmRoomDetails";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;

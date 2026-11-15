@@ -36,17 +36,18 @@
             // 
             this.btnClose.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnClose.Font = new System.Drawing.Font("Tahoma", 12F);
+            this.btnClose.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(212)))), ((int)(((byte)(175)))), ((int)(((byte)(101)))));
             this.btnClose.Location = new System.Drawing.Point(532, 381);
             this.btnClose.Name = "btnClose";
             this.btnClose.Size = new System.Drawing.Size(75, 40);
             this.btnClose.TabIndex = 4;
-            this.btnClose.Text = "Close";
+            this.btnClose.Text = "اغلاق";
             this.btnClose.UseVisualStyleBackColor = true;
             this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
             // 
             // ctrPersonInfo1
             // 
-            this.ctrPersonInfo1.BackColor = System.Drawing.Color.White;
+            this.ctrPersonInfo1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(36)))), ((int)(((byte)(58)))));
             this.ctrPersonInfo1.Location = new System.Drawing.Point(12, 12);
             this.ctrPersonInfo1.Name = "ctrPersonInfo1";
             this.ctrPersonInfo1.Size = new System.Drawing.Size(599, 364);
@@ -56,7 +57,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.White;
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(36)))), ((int)(((byte)(58)))));
             this.ClientSize = new System.Drawing.Size(619, 427);
             this.Controls.Add(this.btnClose);
             this.Controls.Add(this.ctrPersonInfo1);

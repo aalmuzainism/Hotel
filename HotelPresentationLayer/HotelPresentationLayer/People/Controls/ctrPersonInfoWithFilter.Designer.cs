@@ -41,11 +41,13 @@
             // 
             // gbFilter
             // 
+            this.gbFilter.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(36)))), ((int)(((byte)(58)))));
             this.gbFilter.Controls.Add(this.pbSearchPerson);
             this.gbFilter.Controls.Add(this.pbAddPerson);
             this.gbFilter.Controls.Add(this.cbMenue);
             this.gbFilter.Controls.Add(this.txtSearch);
             this.gbFilter.Font = new System.Drawing.Font("Tahoma", 12F);
+            this.gbFilter.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(212)))), ((int)(((byte)(175)))), ((int)(((byte)(101)))));
             this.gbFilter.Location = new System.Drawing.Point(4, 3);
             this.gbFilter.Name = "gbFilter";
             this.gbFilter.Size = new System.Drawing.Size(595, 72);
@@ -102,7 +104,7 @@
             // 
             // ctrPersonInfo1
             // 
-            this.ctrPersonInfo1.BackColor = System.Drawing.Color.White;
+            this.ctrPersonInfo1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(36)))), ((int)(((byte)(58)))));
             this.ctrPersonInfo1.Location = new System.Drawing.Point(4, 81);
             this.ctrPersonInfo1.Name = "ctrPersonInfo1";
             this.ctrPersonInfo1.Size = new System.Drawing.Size(602, 362);
@@ -112,7 +114,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.White;
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(36)))), ((int)(((byte)(58)))));
             this.Controls.Add(this.gbFilter);
             this.Controls.Add(this.ctrPersonInfo1);
             this.Name = "ctrPersonInfoWithFilter";

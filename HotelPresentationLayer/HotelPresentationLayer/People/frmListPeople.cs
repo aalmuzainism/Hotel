@@ -67,13 +67,6 @@ namespace HotelPresentationLayer.People
             frmListPeople_Load(null, null);
         }
 
-        private void pbAddNewPerson_Click(object sender, EventArgs e)
-        {
-            frmAddUpdatePerson frm = new frmAddUpdatePerson();
-            frm.ShowDialog();
-            frmListPeople_Load(null, null);
-        }
-
         private void deletePersonToolStripMenuItem_Click(object sender, EventArgs e)
         {
             int PersonIdForDeleted = (int)dgvListPeople.CurrentRow.Cells[0].Value;
@@ -92,6 +85,13 @@ namespace HotelPresentationLayer.People
             }
             else
                 return;
+        }
+
+        private void btnAddNewPerson_Click(object sender, EventArgs e)
+        {
+            frmAddUpdatePerson frm = new frmAddUpdatePerson();
+            frm.ShowDialog();
+            frmListPeople_Load(null, null);
         }
     }
 }

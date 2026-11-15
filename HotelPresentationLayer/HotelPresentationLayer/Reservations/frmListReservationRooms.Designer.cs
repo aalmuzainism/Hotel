@@ -140,6 +140,7 @@
             // 
             this.btnClose.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnClose.Font = new System.Drawing.Font("Tahoma", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnClose.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(212)))), ((int)(((byte)(175)))), ((int)(((byte)(101)))));
             this.btnClose.Location = new System.Drawing.Point(1398, 723);
             this.btnClose.Name = "btnClose";
             this.btnClose.Size = new System.Drawing.Size(90, 35);
@@ -152,6 +153,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Tahoma", 30F);
+            this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(212)))), ((int)(((byte)(175)))), ((int)(((byte)(101)))));
             this.label1.Location = new System.Drawing.Point(609, 9);
             this.label1.Name = "label1";
             this.label1.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
@@ -191,6 +193,7 @@
             // dtpCheckOut
             // 
             this.dtpCheckOut.CalendarFont = new System.Drawing.Font("Tahoma", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dtpCheckOut.CalendarForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(212)))), ((int)(((byte)(175)))), ((int)(((byte)(101)))));
             this.dtpCheckOut.Font = new System.Drawing.Font("Tahoma", 12F);
             this.dtpCheckOut.Format = System.Windows.Forms.DateTimePickerFormat.Short;
             this.dtpCheckOut.Location = new System.Drawing.Point(17, 68);
@@ -202,6 +205,7 @@
             // 
             this.lblFrom.AutoSize = true;
             this.lblFrom.Font = new System.Drawing.Font("Tahoma", 14F);
+            this.lblFrom.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(212)))), ((int)(((byte)(175)))), ((int)(((byte)(101)))));
             this.lblFrom.Location = new System.Drawing.Point(158, 19);
             this.lblFrom.Name = "lblFrom";
             this.lblFrom.Size = new System.Drawing.Size(34, 23);
@@ -212,6 +216,7 @@
             // 
             this.lblTo.AutoSize = true;
             this.lblTo.Font = new System.Drawing.Font("Tahoma", 14F);
+            this.lblTo.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(212)))), ((int)(((byte)(175)))), ((int)(((byte)(101)))));
             this.lblTo.Location = new System.Drawing.Point(153, 68);
             this.lblTo.Name = "lblTo";
             this.lblTo.Size = new System.Drawing.Size(39, 23);
@@ -222,6 +227,7 @@
             // 
             this.btnSearch.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnSearch.Font = new System.Drawing.Font("Tahoma", 12F);
+            this.btnSearch.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(212)))), ((int)(((byte)(175)))), ((int)(((byte)(101)))));
             this.btnSearch.Location = new System.Drawing.Point(62, 116);
             this.btnSearch.Name = "btnSearch";
             this.btnSearch.Size = new System.Drawing.Size(73, 30);
@@ -258,6 +264,7 @@
             // 
             this.btnSearchText.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnSearchText.Font = new System.Drawing.Font("Tahoma", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSearchText.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(212)))), ((int)(((byte)(175)))), ((int)(((byte)(101)))));
             this.btnSearchText.Location = new System.Drawing.Point(1198, 342);
             this.btnSearchText.Name = "btnSearchText";
             this.btnSearchText.Size = new System.Drawing.Size(90, 35);
@@ -271,7 +278,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.White;
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(36)))), ((int)(((byte)(58)))));
             this.ClientSize = new System.Drawing.Size(1500, 770);
             this.Controls.Add(this.btnSearchText);
             this.Controls.Add(this.txtSearch);

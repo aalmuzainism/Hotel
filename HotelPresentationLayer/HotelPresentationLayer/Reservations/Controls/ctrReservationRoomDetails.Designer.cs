@@ -46,6 +46,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Tahoma", 14F);
+            this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(212)))), ((int)(((byte)(175)))), ((int)(((byte)(101)))));
             this.label1.Location = new System.Drawing.Point(264, 27);
             this.label1.Name = "label1";
             this.label1.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
@@ -57,6 +58,7 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Tahoma", 14F);
+            this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(212)))), ((int)(((byte)(175)))), ((int)(((byte)(101)))));
             this.label2.Location = new System.Drawing.Point(348, 77);
             this.label2.Name = "label2";
             this.label2.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
@@ -68,6 +70,7 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Tahoma", 14F);
+            this.label3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(212)))), ((int)(((byte)(175)))), ((int)(((byte)(101)))));
             this.label3.Location = new System.Drawing.Point(358, 177);
             this.label3.Name = "label3";
             this.label3.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
@@ -79,6 +82,7 @@
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Tahoma", 14F);
+            this.label4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(212)))), ((int)(((byte)(175)))), ((int)(((byte)(101)))));
             this.label4.Location = new System.Drawing.Point(347, 227);
             this.label4.Name = "label4";
             this.label4.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
@@ -90,6 +94,7 @@
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Tahoma", 14F);
+            this.label5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(212)))), ((int)(((byte)(175)))), ((int)(((byte)(101)))));
             this.label5.Location = new System.Drawing.Point(349, 277);
             this.label5.Name = "label5";
             this.label5.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
@@ -102,6 +107,7 @@
             this.lnklblPersonID.AutoSize = true;
             this.lnklblPersonID.Enabled = false;
             this.lnklblPersonID.Font = new System.Drawing.Font("Tahoma", 14F);
+            this.lnklblPersonID.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(212)))), ((int)(((byte)(175)))), ((int)(((byte)(101)))));
             this.lnklblPersonID.Location = new System.Drawing.Point(213, 127);
             this.lnklblPersonID.Name = "lnklblPersonID";
             this.lnklblPersonID.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
@@ -115,6 +121,7 @@
             // 
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Tahoma", 14F);
+            this.label6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(212)))), ((int)(((byte)(175)))), ((int)(((byte)(101)))));
             this.label6.Location = new System.Drawing.Point(348, 127);
             this.label6.Name = "label6";
             this.label6.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
@@ -126,6 +133,7 @@
             // 
             this.lblReservationRoomID.AutoSize = true;
             this.lblReservationRoomID.Font = new System.Drawing.Font("Tahoma", 14F);
+            this.lblReservationRoomID.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(212)))), ((int)(((byte)(175)))), ((int)(((byte)(101)))));
             this.lblReservationRoomID.Location = new System.Drawing.Point(213, 27);
             this.lblReservationRoomID.Name = "lblReservationRoomID";
             this.lblReservationRoomID.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
@@ -137,6 +145,7 @@
             // 
             this.lblReservationID.AutoSize = true;
             this.lblReservationID.Font = new System.Drawing.Font("Tahoma", 14F);
+            this.lblReservationID.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(212)))), ((int)(((byte)(175)))), ((int)(((byte)(101)))));
             this.lblReservationID.Location = new System.Drawing.Point(213, 77);
             this.lblReservationID.Name = "lblReservationID";
             this.lblReservationID.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
@@ -148,6 +157,7 @@
             // 
             this.lblRoomNumber.AutoSize = true;
             this.lblRoomNumber.Font = new System.Drawing.Font("Tahoma", 14F);
+            this.lblRoomNumber.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(212)))), ((int)(((byte)(175)))), ((int)(((byte)(101)))));
             this.lblRoomNumber.Location = new System.Drawing.Point(213, 177);
             this.lblRoomNumber.Name = "lblRoomNumber";
             this.lblRoomNumber.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
@@ -159,6 +169,7 @@
             // 
             this.lblCheckInDate.AutoSize = true;
             this.lblCheckInDate.Font = new System.Drawing.Font("Tahoma", 14F);
+            this.lblCheckInDate.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(212)))), ((int)(((byte)(175)))), ((int)(((byte)(101)))));
             this.lblCheckInDate.Location = new System.Drawing.Point(213, 227);
             this.lblCheckInDate.Name = "lblCheckInDate";
             this.lblCheckInDate.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
@@ -170,6 +181,7 @@
             // 
             this.lblCheckOutDate.AutoSize = true;
             this.lblCheckOutDate.Font = new System.Drawing.Font("Tahoma", 14F);
+            this.lblCheckOutDate.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(212)))), ((int)(((byte)(175)))), ((int)(((byte)(101)))));
             this.lblCheckOutDate.Location = new System.Drawing.Point(213, 277);
             this.lblCheckOutDate.Name = "lblCheckOutDate";
             this.lblCheckOutDate.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
@@ -181,7 +193,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.White;
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(36)))), ((int)(((byte)(58)))));
             this.Controls.Add(this.lblCheckOutDate);
             this.Controls.Add(this.lblCheckInDate);
             this.Controls.Add(this.lblRoomNumber);

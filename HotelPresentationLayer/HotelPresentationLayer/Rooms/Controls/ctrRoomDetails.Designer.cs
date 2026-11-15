@@ -56,6 +56,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Tahoma", 14F);
+            this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(212)))), ((int)(((byte)(175)))), ((int)(((byte)(101)))));
             this.label1.Location = new System.Drawing.Point(11, 17);
             this.label1.Name = "label1";
             this.label1.RightToLeft = System.Windows.Forms.RightToLeft.No;
@@ -67,6 +68,7 @@
             // 
             this.lblRoomID.AutoSize = true;
             this.lblRoomID.Font = new System.Drawing.Font("Tahoma", 14F);
+            this.lblRoomID.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(212)))), ((int)(((byte)(175)))), ((int)(((byte)(101)))));
             this.lblRoomID.Location = new System.Drawing.Point(178, 17);
             this.lblRoomID.Name = "lblRoomID";
             this.lblRoomID.RightToLeft = System.Windows.Forms.RightToLeft.No;
@@ -78,6 +80,7 @@
             // 
             this.lblRoomType.AutoSize = true;
             this.lblRoomType.Font = new System.Drawing.Font("Tahoma", 14F);
+            this.lblRoomType.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(212)))), ((int)(((byte)(175)))), ((int)(((byte)(101)))));
             this.lblRoomType.Location = new System.Drawing.Point(178, 111);
             this.lblRoomType.Name = "lblRoomType";
             this.lblRoomType.RightToLeft = System.Windows.Forms.RightToLeft.No;
@@ -89,6 +92,7 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Tahoma", 14F);
+            this.label3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(212)))), ((int)(((byte)(175)))), ((int)(((byte)(101)))));
             this.label3.Location = new System.Drawing.Point(11, 64);
             this.label3.Name = "label3";
             this.label3.RightToLeft = System.Windows.Forms.RightToLeft.No;
@@ -100,6 +104,7 @@
             // 
             this.lblKingBedCount.AutoSize = true;
             this.lblKingBedCount.Font = new System.Drawing.Font("Tahoma", 14F);
+            this.lblKingBedCount.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(212)))), ((int)(((byte)(175)))), ((int)(((byte)(101)))));
             this.lblKingBedCount.Location = new System.Drawing.Point(179, 205);
             this.lblKingBedCount.Name = "lblKingBedCount";
             this.lblKingBedCount.RightToLeft = System.Windows.Forms.RightToLeft.No;
@@ -111,6 +116,7 @@
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Tahoma", 14F);
+            this.label5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(212)))), ((int)(((byte)(175)))), ((int)(((byte)(101)))));
             this.label5.Location = new System.Drawing.Point(11, 111);
             this.label5.Name = "label5";
             this.label5.RightToLeft = System.Windows.Forms.RightToLeft.No;
@@ -122,6 +128,7 @@
             // 
             this.lblSingleBedCount.AutoSize = true;
             this.lblSingleBedCount.Font = new System.Drawing.Font("Tahoma", 14F);
+            this.lblSingleBedCount.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(212)))), ((int)(((byte)(175)))), ((int)(((byte)(101)))));
             this.lblSingleBedCount.Location = new System.Drawing.Point(178, 252);
             this.lblSingleBedCount.Name = "lblSingleBedCount";
             this.lblSingleBedCount.RightToLeft = System.Windows.Forms.RightToLeft.No;
@@ -133,6 +140,7 @@
             // 
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Tahoma", 14F);
+            this.label7.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(212)))), ((int)(((byte)(175)))), ((int)(((byte)(101)))));
             this.label7.Location = new System.Drawing.Point(11, 205);
             this.label7.Name = "label7";
             this.label7.RightToLeft = System.Windows.Forms.RightToLeft.No;
@@ -144,6 +152,7 @@
             // 
             this.lblLivingRoomCount.AutoSize = true;
             this.lblLivingRoomCount.Font = new System.Drawing.Font("Tahoma", 14F);
+            this.lblLivingRoomCount.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(212)))), ((int)(((byte)(175)))), ((int)(((byte)(101)))));
             this.lblLivingRoomCount.Location = new System.Drawing.Point(178, 299);
             this.lblLivingRoomCount.Name = "lblLivingRoomCount";
             this.lblLivingRoomCount.RightToLeft = System.Windows.Forms.RightToLeft.No;
@@ -155,6 +164,7 @@
             // 
             this.label9.AutoSize = true;
             this.label9.Font = new System.Drawing.Font("Tahoma", 14F);
+            this.label9.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(212)))), ((int)(((byte)(175)))), ((int)(((byte)(101)))));
             this.label9.Location = new System.Drawing.Point(10, 252);
             this.label9.Name = "label9";
             this.label9.RightToLeft = System.Windows.Forms.RightToLeft.No;
@@ -166,6 +176,7 @@
             // 
             this.lblBathroomCount.AutoSize = true;
             this.lblBathroomCount.Font = new System.Drawing.Font("Tahoma", 14F);
+            this.lblBathroomCount.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(212)))), ((int)(((byte)(175)))), ((int)(((byte)(101)))));
             this.lblBathroomCount.Location = new System.Drawing.Point(178, 346);
             this.lblBathroomCount.Name = "lblBathroomCount";
             this.lblBathroomCount.RightToLeft = System.Windows.Forms.RightToLeft.No;
@@ -177,6 +188,7 @@
             // 
             this.label11.AutoSize = true;
             this.label11.Font = new System.Drawing.Font("Tahoma", 14F);
+            this.label11.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(212)))), ((int)(((byte)(175)))), ((int)(((byte)(101)))));
             this.label11.Location = new System.Drawing.Point(12, 299);
             this.label11.Name = "label11";
             this.label11.RightToLeft = System.Windows.Forms.RightToLeft.No;
@@ -188,6 +200,7 @@
             // 
             this.lblFullKitchenCount.AutoSize = true;
             this.lblFullKitchenCount.Font = new System.Drawing.Font("Tahoma", 14F);
+            this.lblFullKitchenCount.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(212)))), ((int)(((byte)(175)))), ((int)(((byte)(101)))));
             this.lblFullKitchenCount.Location = new System.Drawing.Point(178, 393);
             this.lblFullKitchenCount.Name = "lblFullKitchenCount";
             this.lblFullKitchenCount.RightToLeft = System.Windows.Forms.RightToLeft.No;
@@ -199,6 +212,7 @@
             // 
             this.label13.AutoSize = true;
             this.label13.Font = new System.Drawing.Font("Tahoma", 14F);
+            this.label13.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(212)))), ((int)(((byte)(175)))), ((int)(((byte)(101)))));
             this.label13.Location = new System.Drawing.Point(11, 346);
             this.label13.Name = "label13";
             this.label13.RightToLeft = System.Windows.Forms.RightToLeft.No;
@@ -210,6 +224,7 @@
             // 
             this.lblKitchenetteCount.AutoSize = true;
             this.lblKitchenetteCount.Font = new System.Drawing.Font("Tahoma", 14F);
+            this.lblKitchenetteCount.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(212)))), ((int)(((byte)(175)))), ((int)(((byte)(101)))));
             this.lblKitchenetteCount.Location = new System.Drawing.Point(178, 440);
             this.lblKitchenetteCount.Name = "lblKitchenetteCount";
             this.lblKitchenetteCount.RightToLeft = System.Windows.Forms.RightToLeft.No;
@@ -221,6 +236,7 @@
             // 
             this.label15.AutoSize = true;
             this.label15.Font = new System.Drawing.Font("Tahoma", 14F);
+            this.label15.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(212)))), ((int)(((byte)(175)))), ((int)(((byte)(101)))));
             this.label15.Location = new System.Drawing.Point(11, 393);
             this.label15.Name = "label15";
             this.label15.RightToLeft = System.Windows.Forms.RightToLeft.No;
@@ -232,6 +248,7 @@
             // 
             this.lblPrice.AutoSize = true;
             this.lblPrice.Font = new System.Drawing.Font("Tahoma", 14F);
+            this.lblPrice.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(212)))), ((int)(((byte)(175)))), ((int)(((byte)(101)))));
             this.lblPrice.Location = new System.Drawing.Point(178, 487);
             this.lblPrice.Name = "lblPrice";
             this.lblPrice.RightToLeft = System.Windows.Forms.RightToLeft.No;
@@ -243,6 +260,7 @@
             // 
             this.label17.AutoSize = true;
             this.label17.Font = new System.Drawing.Font("Tahoma", 14F);
+            this.label17.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(212)))), ((int)(((byte)(175)))), ((int)(((byte)(101)))));
             this.label17.Location = new System.Drawing.Point(12, 440);
             this.label17.Name = "label17";
             this.label17.RightToLeft = System.Windows.Forms.RightToLeft.No;
@@ -254,6 +272,7 @@
             // 
             this.lblRoomNumber.AutoSize = true;
             this.lblRoomNumber.Font = new System.Drawing.Font("Tahoma", 14F);
+            this.lblRoomNumber.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(212)))), ((int)(((byte)(175)))), ((int)(((byte)(101)))));
             this.lblRoomNumber.Location = new System.Drawing.Point(179, 64);
             this.lblRoomNumber.Name = "lblRoomNumber";
             this.lblRoomNumber.RightToLeft = System.Windows.Forms.RightToLeft.No;
@@ -265,6 +284,7 @@
             // 
             this.label19.AutoSize = true;
             this.label19.Font = new System.Drawing.Font("Tahoma", 14F);
+            this.label19.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(212)))), ((int)(((byte)(175)))), ((int)(((byte)(101)))));
             this.label19.Location = new System.Drawing.Point(11, 487);
             this.label19.Name = "label19";
             this.label19.RightToLeft = System.Windows.Forms.RightToLeft.No;
@@ -276,6 +296,7 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Tahoma", 14F);
+            this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(212)))), ((int)(((byte)(175)))), ((int)(((byte)(101)))));
             this.label2.Location = new System.Drawing.Point(12, 158);
             this.label2.Name = "label2";
             this.label2.RightToLeft = System.Windows.Forms.RightToLeft.No;
@@ -287,6 +308,7 @@
             // 
             this.lblRoomCount.AutoSize = true;
             this.lblRoomCount.Font = new System.Drawing.Font("Tahoma", 14F);
+            this.lblRoomCount.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(212)))), ((int)(((byte)(175)))), ((int)(((byte)(101)))));
             this.lblRoomCount.Location = new System.Drawing.Point(178, 158);
             this.lblRoomCount.Name = "lblRoomCount";
             this.lblRoomCount.RightToLeft = System.Windows.Forms.RightToLeft.No;
@@ -298,7 +320,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.White;
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(36)))), ((int)(((byte)(58)))));
             this.Controls.Add(this.label2);
             this.Controls.Add(this.lblRoomCount);
             this.Controls.Add(this.lblRoomNumber);
