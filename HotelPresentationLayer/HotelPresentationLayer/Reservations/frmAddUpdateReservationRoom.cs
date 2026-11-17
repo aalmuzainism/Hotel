@@ -13,6 +13,10 @@ namespace HotelPresentationLayer.Reservations
 {
     public partial class frmAddUpdateReservationRoom : Form
     {
+        enum enMode { Singular = 0, Plural = 1 };
+        enMode _Mode = enMode.Singular;
+
+        private List<int> _ListUnits;
 
         clsReservations NewReservation;
 
@@ -23,13 +27,35 @@ namespace HotelPresentationLayer.Reservations
         public frmAddUpdateReservationRoom(int RoomNumber)
         {
             InitializeComponent();
-            _RoomNumber = RoomNumber;
 
+            _Mode = enMode.Singular;
+            _RoomNumber = RoomNumber;
+        }
+
+        public frmAddUpdateReservationRoom(List<int> ListUnits)
+        {
+            InitializeComponent();
+
+            _Mode = enMode.Plural;
+            _ListUnits = ListUnits;
         }
 
         private void frmAddUpdateReservationRoom_Load(object sender, EventArgs e)
         {
-            lblRoomNumber.Text = _RoomNumber.ToString();
+            if (_Mode == enMode.Singular)
+            {
+                txtListUnits.Text = _RoomNumber.ToString();
+            }
+            else
+            {
+                txtListUnits.Text = "";
+                for (int index = 0; index < _ListUnits.Count(); index++)
+                {
+                    txtListUnits.Text += _ListUnits[index].ToString();
+                    if (index != _ListUnits.Count() - 1)
+                        txtListUnits.Text += ", ";
+                }
+            }
 
             dtpCheckInDate.MinDate = DateTime.Now;
             dtpCheckOutDate.MinDate = dtpCheckInDate.Value.AddDays(1);

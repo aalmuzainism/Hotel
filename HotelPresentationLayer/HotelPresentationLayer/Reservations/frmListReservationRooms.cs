@@ -374,5 +374,14 @@ namespace HotelPresentationLayer.Reservations
             _ListUnits.Clear();
             txtListUnits.Text = "";
         }
+
+        private void btnReservation_Click(object sender, EventArgs e)
+        {
+            if (_ListUnits.Count() == 0)
+                return;
+
+            frmAddUpdateReservationRoom frm = new frmAddUpdateReservationRoom(_ListUnits);
+            frm.ShowDialog();
+        }
     }
 }
