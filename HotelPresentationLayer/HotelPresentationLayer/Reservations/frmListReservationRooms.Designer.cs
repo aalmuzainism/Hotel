@@ -51,6 +51,13 @@
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.txtSearch = new System.Windows.Forms.TextBox();
             this.btnSearchText = new System.Windows.Forms.Button();
+            this.txtListUnits = new System.Windows.Forms.TextBox();
+            this.btnReservation = new System.Windows.Forms.Button();
+            this.btnClear = new System.Windows.Forms.Button();
+            this.toolStripMenuItem5 = new System.Windows.Forms.ToolStripSeparator();
+            this.addToListToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem6 = new System.Windows.Forms.ToolStripSeparator();
+            this.removeFromListToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.contextMenuStrip1.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
@@ -76,63 +83,67 @@
             this.toolStripMenuItem4,
             this.checkOutToolStripMenuItem,
             this.toolStripMenuItem1,
-            this.cancelToolStripMenuItem});
+            this.cancelToolStripMenuItem,
+            this.toolStripMenuItem5,
+            this.addToListToolStripMenuItem,
+            this.toolStripMenuItem6,
+            this.removeFromListToolStripMenuItem});
             this.contextMenuStrip1.Name = "contextMenuStrip1";
-            this.contextMenuStrip1.Size = new System.Drawing.Size(216, 178);
+            this.contextMenuStrip1.Size = new System.Drawing.Size(222, 250);
             this.contextMenuStrip1.Opening += new System.ComponentModel.CancelEventHandler(this.contextMenuStrip1_Opening);
             // 
             // bookingDetailsToolStripMenuItem
             // 
             this.bookingDetailsToolStripMenuItem.Name = "bookingDetailsToolStripMenuItem";
-            this.bookingDetailsToolStripMenuItem.Size = new System.Drawing.Size(215, 30);
+            this.bookingDetailsToolStripMenuItem.Size = new System.Drawing.Size(221, 30);
             this.bookingDetailsToolStripMenuItem.Text = "Booking Details";
             this.bookingDetailsToolStripMenuItem.Click += new System.EventHandler(this.bookingDetailsToolStripMenuItem_Click);
             // 
             // toolStripMenuItem2
             // 
             this.toolStripMenuItem2.Name = "toolStripMenuItem2";
-            this.toolStripMenuItem2.Size = new System.Drawing.Size(212, 6);
+            this.toolStripMenuItem2.Size = new System.Drawing.Size(218, 6);
             // 
             // reservationToolStripMenuItem
             // 
             this.reservationToolStripMenuItem.Name = "reservationToolStripMenuItem";
-            this.reservationToolStripMenuItem.Size = new System.Drawing.Size(215, 30);
+            this.reservationToolStripMenuItem.Size = new System.Drawing.Size(221, 30);
             this.reservationToolStripMenuItem.Text = "Reservation";
             this.reservationToolStripMenuItem.Click += new System.EventHandler(this.reservationToolStripMenuItem_Click);
             // 
             // toolStripMenuItem3
             // 
             this.toolStripMenuItem3.Name = "toolStripMenuItem3";
-            this.toolStripMenuItem3.Size = new System.Drawing.Size(212, 6);
+            this.toolStripMenuItem3.Size = new System.Drawing.Size(218, 6);
             // 
             // checkInToolStripMenuItem
             // 
             this.checkInToolStripMenuItem.Name = "checkInToolStripMenuItem";
-            this.checkInToolStripMenuItem.Size = new System.Drawing.Size(215, 30);
+            this.checkInToolStripMenuItem.Size = new System.Drawing.Size(221, 30);
             this.checkInToolStripMenuItem.Text = "Check In";
             this.checkInToolStripMenuItem.Click += new System.EventHandler(this.checkInToolStripMenuItem_Click);
             // 
             // toolStripMenuItem4
             // 
             this.toolStripMenuItem4.Name = "toolStripMenuItem4";
-            this.toolStripMenuItem4.Size = new System.Drawing.Size(212, 6);
+            this.toolStripMenuItem4.Size = new System.Drawing.Size(218, 6);
             // 
             // checkOutToolStripMenuItem
             // 
             this.checkOutToolStripMenuItem.Name = "checkOutToolStripMenuItem";
-            this.checkOutToolStripMenuItem.Size = new System.Drawing.Size(215, 30);
+            this.checkOutToolStripMenuItem.Size = new System.Drawing.Size(221, 30);
             this.checkOutToolStripMenuItem.Text = "Check Out";
             this.checkOutToolStripMenuItem.Click += new System.EventHandler(this.checkOutToolStripMenuItem_Click);
             // 
             // toolStripMenuItem1
             // 
             this.toolStripMenuItem1.Name = "toolStripMenuItem1";
-            this.toolStripMenuItem1.Size = new System.Drawing.Size(212, 6);
+            this.toolStripMenuItem1.Size = new System.Drawing.Size(218, 6);
             // 
             // cancelToolStripMenuItem
             // 
             this.cancelToolStripMenuItem.Name = "cancelToolStripMenuItem";
-            this.cancelToolStripMenuItem.Size = new System.Drawing.Size(215, 30);
+            this.cancelToolStripMenuItem.Size = new System.Drawing.Size(221, 30);
             this.cancelToolStripMenuItem.Text = "Cancel";
             this.cancelToolStripMenuItem.Click += new System.EventHandler(this.cancelToolStripMenuItem_Click);
             // 
@@ -274,12 +285,77 @@
             this.btnSearchText.Visible = false;
             this.btnSearchText.Click += new System.EventHandler(this.btnSearchText_Click);
             // 
+            // txtListUnits
+            // 
+            this.txtListUnits.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(36)))), ((int)(((byte)(58)))));
+            this.txtListUnits.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtListUnits.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtListUnits.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(212)))), ((int)(((byte)(175)))), ((int)(((byte)(101)))));
+            this.txtListUnits.Location = new System.Drawing.Point(1294, 12);
+            this.txtListUnits.Multiline = true;
+            this.txtListUnits.Name = "txtListUnits";
+            this.txtListUnits.ReadOnly = true;
+            this.txtListUnits.Size = new System.Drawing.Size(194, 56);
+            this.txtListUnits.TabIndex = 23;
+            // 
+            // btnReservation
+            // 
+            this.btnReservation.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnReservation.Font = new System.Drawing.Font("Tahoma", 14F);
+            this.btnReservation.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(212)))), ((int)(((byte)(175)))), ((int)(((byte)(101)))));
+            this.btnReservation.Location = new System.Drawing.Point(1396, 74);
+            this.btnReservation.Name = "btnReservation";
+            this.btnReservation.Size = new System.Drawing.Size(90, 35);
+            this.btnReservation.TabIndex = 24;
+            this.btnReservation.Text = "حجز";
+            this.btnReservation.UseVisualStyleBackColor = true;
+            // 
+            // btnClear
+            // 
+            this.btnClear.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnClear.Font = new System.Drawing.Font("Tahoma", 13F);
+            this.btnClear.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(212)))), ((int)(((byte)(175)))), ((int)(((byte)(101)))));
+            this.btnClear.Location = new System.Drawing.Point(1294, 74);
+            this.btnClear.Name = "btnClear";
+            this.btnClear.Size = new System.Drawing.Size(96, 35);
+            this.btnClear.TabIndex = 25;
+            this.btnClear.Text = "حذف الكل";
+            this.btnClear.UseVisualStyleBackColor = true;
+            this.btnClear.Click += new System.EventHandler(this.btnClear_Click);
+            // 
+            // toolStripMenuItem5
+            // 
+            this.toolStripMenuItem5.Name = "toolStripMenuItem5";
+            this.toolStripMenuItem5.Size = new System.Drawing.Size(218, 6);
+            // 
+            // addToListToolStripMenuItem
+            // 
+            this.addToListToolStripMenuItem.Name = "addToListToolStripMenuItem";
+            this.addToListToolStripMenuItem.Size = new System.Drawing.Size(221, 30);
+            this.addToListToolStripMenuItem.Text = "AddToList";
+            this.addToListToolStripMenuItem.Click += new System.EventHandler(this.addToListToolStripMenuItem_Click);
+            // 
+            // toolStripMenuItem6
+            // 
+            this.toolStripMenuItem6.Name = "toolStripMenuItem6";
+            this.toolStripMenuItem6.Size = new System.Drawing.Size(218, 6);
+            // 
+            // removeFromListToolStripMenuItem
+            // 
+            this.removeFromListToolStripMenuItem.Name = "removeFromListToolStripMenuItem";
+            this.removeFromListToolStripMenuItem.Size = new System.Drawing.Size(221, 30);
+            this.removeFromListToolStripMenuItem.Text = "RemoveFromList";
+            this.removeFromListToolStripMenuItem.Click += new System.EventHandler(this.removeFromListToolStripMenuItem_Click);
+            // 
             // frmListReservationRooms
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(36)))), ((int)(((byte)(58)))));
             this.ClientSize = new System.Drawing.Size(1500, 770);
+            this.Controls.Add(this.btnClear);
+            this.Controls.Add(this.btnReservation);
+            this.Controls.Add(this.txtListUnits);
             this.Controls.Add(this.btnSearchText);
             this.Controls.Add(this.txtSearch);
             this.Controls.Add(this.groupBox1);
@@ -324,5 +400,12 @@
         private System.Windows.Forms.ToolStripMenuItem cancelToolStripMenuItem;
         private System.Windows.Forms.TextBox txtSearch;
         private System.Windows.Forms.Button btnSearchText;
+        private System.Windows.Forms.TextBox txtListUnits;
+        private System.Windows.Forms.Button btnReservation;
+        private System.Windows.Forms.ToolStripSeparator toolStripMenuItem5;
+        private System.Windows.Forms.ToolStripMenuItem addToListToolStripMenuItem;
+        private System.Windows.Forms.ToolStripSeparator toolStripMenuItem6;
+        private System.Windows.Forms.ToolStripMenuItem removeFromListToolStripMenuItem;
+        private System.Windows.Forms.Button btnClear;
     }
 }

@@ -255,6 +255,11 @@ namespace HotelBusinessLayer
             return clsReservationRoomsData.GetAllReservationRoomsForPersonByNationalID(NationalID);
         }
 
+        public static DataTable GetConflictByRoomNumberAndDates(List<int> ListUnits, DateTime CheckInDate, DateTime CheckOutDate)
+        {
+            return clsReservationRoomsData.GetConflictByRoomNumberAndDates(ListUnits, CheckInDate, CheckOutDate);
+        }
+
         public bool Save()
         {
 
