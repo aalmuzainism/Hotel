@@ -30,7 +30,6 @@
         {
             this.label1 = new System.Windows.Forms.Label();
             this.lblReservationID = new System.Windows.Forms.Label();
-            this.lblRoomNumber = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.dtpCheckInDate = new System.Windows.Forms.DateTimePicker();
             this.label5 = new System.Windows.Forms.Label();
@@ -42,6 +41,7 @@
             this.label2 = new System.Windows.Forms.Label();
             this.lblAlert = new System.Windows.Forms.Label();
             this.ctrPersonInfoWithFilter1 = new HotelPresentationLayer.People.Controls.ctrPersonInfoWithFilter();
+            this.txtListUnits = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // label1
@@ -49,7 +49,7 @@
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Tahoma", 14F);
             this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(212)))), ((int)(((byte)(175)))), ((int)(((byte)(101)))));
-            this.label1.Location = new System.Drawing.Point(981, 12);
+            this.label1.Location = new System.Drawing.Point(1161, 12);
             this.label1.Name = "label1";
             this.label1.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.label1.Size = new System.Drawing.Size(111, 23);
@@ -61,31 +61,19 @@
             this.lblReservationID.AutoSize = true;
             this.lblReservationID.Font = new System.Drawing.Font("Tahoma", 13F);
             this.lblReservationID.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(212)))), ((int)(((byte)(175)))), ((int)(((byte)(101)))));
-            this.lblReservationID.Location = new System.Drawing.Point(924, 14);
+            this.lblReservationID.Location = new System.Drawing.Point(1104, 14);
             this.lblReservationID.Name = "lblReservationID";
             this.lblReservationID.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.lblReservationID.Size = new System.Drawing.Size(51, 22);
             this.lblReservationID.TabIndex = 3;
             this.lblReservationID.Text = "[???]";
             // 
-            // lblRoomNumber
-            // 
-            this.lblRoomNumber.AutoSize = true;
-            this.lblRoomNumber.Font = new System.Drawing.Font("Tahoma", 13F);
-            this.lblRoomNumber.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(212)))), ((int)(((byte)(175)))), ((int)(((byte)(101)))));
-            this.lblRoomNumber.Location = new System.Drawing.Point(924, 69);
-            this.lblRoomNumber.Name = "lblRoomNumber";
-            this.lblRoomNumber.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.lblRoomNumber.Size = new System.Drawing.Size(51, 22);
-            this.lblRoomNumber.TabIndex = 5;
-            this.lblRoomNumber.Text = "[???]";
-            // 
             // label4
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Tahoma", 14F);
             this.label4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(212)))), ((int)(((byte)(175)))), ((int)(((byte)(101)))));
-            this.label4.Location = new System.Drawing.Point(995, 68);
+            this.label4.Location = new System.Drawing.Point(1175, 68);
             this.label4.Name = "label4";
             this.label4.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.label4.Size = new System.Drawing.Size(97, 23);
@@ -97,7 +85,7 @@
             this.dtpCheckInDate.CalendarFont = new System.Drawing.Font("Tahoma", 10F);
             this.dtpCheckInDate.Font = new System.Drawing.Font("Tahoma", 12F);
             this.dtpCheckInDate.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dtpCheckInDate.Location = new System.Drawing.Point(848, 158);
+            this.dtpCheckInDate.Location = new System.Drawing.Point(1028, 140);
             this.dtpCheckInDate.Name = "dtpCheckInDate";
             this.dtpCheckInDate.Size = new System.Drawing.Size(123, 27);
             this.dtpCheckInDate.TabIndex = 6;
@@ -108,7 +96,7 @@
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Tahoma", 14F);
             this.label5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(212)))), ((int)(((byte)(175)))), ((int)(((byte)(101)))));
-            this.label5.Location = new System.Drawing.Point(980, 158);
+            this.label5.Location = new System.Drawing.Point(1160, 140);
             this.label5.Name = "label5";
             this.label5.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.label5.Size = new System.Drawing.Size(112, 23);
@@ -120,7 +108,7 @@
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Tahoma", 14F);
             this.label6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(212)))), ((int)(((byte)(175)))), ((int)(((byte)(101)))));
-            this.label6.Location = new System.Drawing.Point(982, 209);
+            this.label6.Location = new System.Drawing.Point(1162, 191);
             this.label6.Name = "label6";
             this.label6.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.label6.Size = new System.Drawing.Size(110, 23);
@@ -132,7 +120,7 @@
             this.dtpCheckOutDate.CalendarFont = new System.Drawing.Font("Tahoma", 10F);
             this.dtpCheckOutDate.Font = new System.Drawing.Font("Tahoma", 12F);
             this.dtpCheckOutDate.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dtpCheckOutDate.Location = new System.Drawing.Point(848, 209);
+            this.dtpCheckOutDate.Location = new System.Drawing.Point(1028, 191);
             this.dtpCheckOutDate.Name = "dtpCheckOutDate";
             this.dtpCheckOutDate.Size = new System.Drawing.Size(123, 27);
             this.dtpCheckOutDate.TabIndex = 8;
@@ -143,7 +131,7 @@
             this.btnSave.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnSave.Font = new System.Drawing.Font("Tahoma", 14F);
             this.btnSave.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(212)))), ((int)(((byte)(175)))), ((int)(((byte)(101)))));
-            this.btnSave.Location = new System.Drawing.Point(996, 426);
+            this.btnSave.Location = new System.Drawing.Point(1176, 426);
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(96, 33);
             this.btnSave.TabIndex = 10;
@@ -156,7 +144,7 @@
             this.btnClose.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnClose.Font = new System.Drawing.Font("Tahoma", 14F);
             this.btnClose.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(212)))), ((int)(((byte)(175)))), ((int)(((byte)(101)))));
-            this.btnClose.Location = new System.Drawing.Point(893, 426);
+            this.btnClose.Location = new System.Drawing.Point(1073, 426);
             this.btnClose.Name = "btnClose";
             this.btnClose.Size = new System.Drawing.Size(97, 33);
             this.btnClose.TabIndex = 11;
@@ -168,7 +156,7 @@
             // 
             this.txtNotes.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtNotes.Font = new System.Drawing.Font("Tahoma", 12F);
-            this.txtNotes.Location = new System.Drawing.Point(821, 305);
+            this.txtNotes.Location = new System.Drawing.Point(1005, 346);
             this.txtNotes.Multiline = true;
             this.txtNotes.Name = "txtNotes";
             this.txtNotes.Size = new System.Drawing.Size(267, 62);
@@ -179,7 +167,7 @@
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Tahoma", 14F);
             this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(212)))), ((int)(((byte)(175)))), ((int)(((byte)(101)))));
-            this.label2.Location = new System.Drawing.Point(1005, 279);
+            this.label2.Location = new System.Drawing.Point(1189, 320);
             this.label2.Name = "label2";
             this.label2.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.label2.Size = new System.Drawing.Size(87, 23);
@@ -191,11 +179,11 @@
             this.lblAlert.AutoSize = true;
             this.lblAlert.Font = new System.Drawing.Font("Tahoma", 12F);
             this.lblAlert.ForeColor = System.Drawing.Color.Red;
-            this.lblAlert.Location = new System.Drawing.Point(665, 136);
+            this.lblAlert.Location = new System.Drawing.Point(625, 223);
             this.lblAlert.Name = "lblAlert";
-            this.lblAlert.Size = new System.Drawing.Size(185, 19);
+            this.lblAlert.Size = new System.Drawing.Size(45, 19);
             this.lblAlert.TabIndex = 14;
-            this.lblAlert.Text = "التاريخ يتعارض مع حجز اخر";
+            this.lblAlert.Text = "[???]";
             this.lblAlert.Visible = false;
             // 
             // ctrPersonInfoWithFilter1
@@ -207,12 +195,26 @@
             this.ctrPersonInfoWithFilter1.Size = new System.Drawing.Size(607, 447);
             this.ctrPersonInfoWithFilter1.TabIndex = 0;
             // 
+            // txtListUnits
+            // 
+            this.txtListUnits.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(36)))), ((int)(((byte)(58)))));
+            this.txtListUnits.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtListUnits.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtListUnits.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(212)))), ((int)(((byte)(175)))), ((int)(((byte)(101)))));
+            this.txtListUnits.Location = new System.Drawing.Point(957, 69);
+            this.txtListUnits.Multiline = true;
+            this.txtListUnits.Name = "txtListUnits";
+            this.txtListUnits.ReadOnly = true;
+            this.txtListUnits.Size = new System.Drawing.Size(194, 56);
+            this.txtListUnits.TabIndex = 24;
+            // 
             // frmAddUpdateReservationRoom
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(36)))), ((int)(((byte)(58)))));
-            this.ClientSize = new System.Drawing.Size(1104, 467);
+            this.ClientSize = new System.Drawing.Size(1284, 467);
+            this.Controls.Add(this.txtListUnits);
             this.Controls.Add(this.lblAlert);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.txtNotes);
@@ -222,7 +224,6 @@
             this.Controls.Add(this.dtpCheckOutDate);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.dtpCheckInDate);
-            this.Controls.Add(this.lblRoomNumber);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.lblReservationID);
             this.Controls.Add(this.label1);
@@ -242,7 +243,6 @@
         private People.Controls.ctrPersonInfoWithFilter ctrPersonInfoWithFilter1;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label lblReservationID;
-        private System.Windows.Forms.Label lblRoomNumber;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.DateTimePicker dtpCheckInDate;
         private System.Windows.Forms.Label label5;
@@ -253,5 +253,6 @@
         private System.Windows.Forms.TextBox txtNotes;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label lblAlert;
+        private System.Windows.Forms.TextBox txtListUnits;
     }
 }
