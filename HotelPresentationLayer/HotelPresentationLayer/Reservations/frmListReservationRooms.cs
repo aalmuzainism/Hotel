@@ -20,6 +20,8 @@ namespace HotelPresentationLayer.Reservations
 
         private int _RoomNumber = -1;
 
+        private List<int> _ListUnits = new List<int>();
+
         public frmListReservationRooms()
         {
             InitializeComponent();
@@ -341,5 +343,36 @@ namespace HotelPresentationLayer.Reservations
             this.Close();
         }
 
+        private void _FillTxtListUnits()
+        {
+            txtListUnits.Text = "";
+            for (int index = 0; index < _ListUnits.Count(); index++)
+            {
+                txtListUnits.Text += _ListUnits[index];
+                if (index != _ListUnits.Count() - 1)
+                    txtListUnits.Text += ", ";
+            }
+        }
+
+        private void addToListToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (_RoomNumber == -1 || _ListUnits.Contains(_RoomNumber))
+                return;
+
+            _ListUnits.Add(_RoomNumber);
+            _FillTxtListUnits();
+        }
+
+        private void removeFromListToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            _ListUnits.Remove(_RoomNumber);
+            _FillTxtListUnits();
+        }
+
+        private void btnClear_Click(object sender, EventArgs e)
+        {
+            _ListUnits.Clear();
+            txtListUnits.Text = "";
+        }
     }
 }

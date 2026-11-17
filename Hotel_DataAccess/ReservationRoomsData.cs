@@ -1119,5 +1119,50 @@ namespace Hotel_DataAccess
             return dt;
         }
 
+        public static DataTable GetConflictByRoomNumberAndDates(List<int> ListUnits, DateTime CheckInDate, DateTime CheckOutDate)
+        {
+            DataTable dt = new DataTable();
+
+
+            using (SqlConnection connection = new SqlConnection(clsDataAccessSetings.ConnectionString))
+            {
+                string strListUnits = string.Join(", ", ListUnits);
+
+                string query = $@"SELECT Rooms.RoomNumber, ReservationRooms.CheckInDate, ReservationRooms.CheckOutDate FROM Rooms
+                                  INNER JOIN ReservationRooms
+                                  ON ReservationRooms.RoomID = Rooms.RoomID
+                                  
+                                  WHERE Rooms.RoomNumber IN ({strListUnits}) 
+                                  AND (@CheckOutDate > CheckInDate)
+                                  AND (@CheckInDate < CheckOutDate)
+                                  AND (ReservationRooms.Status = 1 OR ReservationRooms.Status = 2)";
+
+                using (SqlCommand command = new SqlCommand(query, connection))
+                {
+                    command.Parameters.AddWithValue("@CheckInDate", CheckInDate);
+                    command.Parameters.AddWithValue("@CheckOutDate", CheckOutDate);
+
+                    try
+                    {
+                        connection.Open();
+
+                        SqlDataReader reader = command.ExecuteReader();
+
+                        if (reader.HasRows)
+                        {
+                            dt.Load(reader);
+                        }
+
+                        reader.Close();
+                    }
+                    catch (Exception ex)
+                    {
+                        Console.WriteLine("error exception" + ex);
+                    }
+                }
+            }
+
+            return dt;
+        }
     }
 }
