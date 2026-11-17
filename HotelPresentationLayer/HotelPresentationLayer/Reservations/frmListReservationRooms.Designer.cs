@@ -278,7 +278,7 @@
             this.groupBox1.Controls.Add(this.dtpCheckOut);
             this.groupBox1.Controls.Add(this.lblTo);
             this.groupBox1.Controls.Add(this.lblFrom);
-            this.groupBox1.Location = new System.Drawing.Point(1294, 195);
+            this.groupBox1.Location = new System.Drawing.Point(1294, 219);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(194, 158);
             this.groupBox1.TabIndex = 18;
@@ -288,7 +288,7 @@
             // 
             this.txtSearch.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtSearch.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtSearch.Location = new System.Drawing.Point(1098, 383);
+            this.txtSearch.Location = new System.Drawing.Point(1298, 350);
             this.txtSearch.Name = "txtSearch";
             this.txtSearch.Size = new System.Drawing.Size(190, 27);
             this.txtSearch.TabIndex = 20;
@@ -300,7 +300,7 @@
             this.btnSearchText.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnSearchText.Font = new System.Drawing.Font("Tahoma", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnSearchText.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(212)))), ((int)(((byte)(175)))), ((int)(((byte)(101)))));
-            this.btnSearchText.Location = new System.Drawing.Point(1198, 342);
+            this.btnSearchText.Location = new System.Drawing.Point(1398, 309);
             this.btnSearchText.Name = "btnSearchText";
             this.btnSearchText.Size = new System.Drawing.Size(90, 35);
             this.btnSearchText.TabIndex = 21;

@@ -136,6 +136,7 @@ namespace HotelPresentationLayer.Reservations
             {
                 btnSearchText.Visible = false;
                 txtSearch.Visible = false;
+                groupBox1.Visible = false;
                 txtSearch.Clear();
                 flpListRooms.Controls.Clear();
                 DataTable dt = clsReservationRooms.GetAllReservationRoomsCheckInToday(DateTime.Today);
@@ -154,6 +155,7 @@ namespace HotelPresentationLayer.Reservations
             {
                 btnSearchText.Visible = false;
                 txtSearch.Visible = false;
+                groupBox1.Visible = false;
                 txtSearch.Clear();
                 flpListRooms.Controls.Clear();
 
@@ -181,6 +183,8 @@ namespace HotelPresentationLayer.Reservations
             {
                 txtSearch.Visible = true;
                 btnSearchText.Visible = true;
+                groupBox1.Visible = false;
+                txtSearch.Clear();
             }
         }
 
