@@ -61,12 +61,7 @@ namespace HotelPresentationLayer.Reservations
             dtpCheckOutDate.MinDate = dtpCheckInDate.Value.AddDays(1);
         }
 
-        private void btnClose_Click(object sender, EventArgs e)
-        {
-            this.Close();
-        }
-
-        private void dtpCheckInDate_ValueChanged(object sender, EventArgs e)
+        private void HandleIfCheckInDateAfter12AMOrBefore()
         {
             if (DateTime.Now.ToShortDateString() == dtpCheckInDate.Value.ToShortDateString())
             {
@@ -85,88 +80,79 @@ namespace HotelPresentationLayer.Reservations
             {
                 dtpCheckOutDate.MinDate = dtpCheckInDate.Value.AddDays(1);
             }
+        }
 
-            if (clsReservationRooms.IsReservationRoomWithDateByRoomNumber(_RoomNumber, dtpCheckInDate.Value, dtpCheckOutDate.Value))
+        private void CheckConflictForSingular()
+        {
+            clsReservationRooms Temp = clsReservationRooms.GetReservationRoomWithDateByRoomNumber
+            (clsRooms.GetRoomInfoByRoomNumber(_RoomNumber).RoomID, dtpCheckInDate.Value, dtpCheckOutDate.Value);
+
+            if (Temp != null)
             {
-                clsReservationRooms Temp = clsReservationRooms.GetReservationRoomWithDateByRoomNumber(clsRooms.GetRoomInfoByRoomNumber(_RoomNumber).RoomID, dtpCheckInDate.Value, dtpCheckOutDate.Value);
-
                 if (Temp.CheckOutDate.ToShortDateString() != dtpCheckInDate.Value.ToShortDateString())
                 {
+                    lblAlert.Text = $"{_RoomNumber} Is Booked from {Temp.CheckInDate.ToShortDateString()} to {Temp.CheckOutDate.ToShortDateString()}";
                     lblAlert.Visible = true;
-                    lblAlert.Text = $"التاريخ يتعارض مع حجز اخر من {Temp.CheckInDate.ToShortDateString()} الى {Temp.CheckOutDate.ToShortDateString()}";
                     btnSave.Enabled = false;
+                    return;
                 }
-                else
+            }
+            lblAlert.Visible = false;
+            btnSave.Enabled = true;
+        }
+
+        private void CheckConflictForPlural()
+        {
+            DataTable dt = clsReservationRooms.GetConflictByRoomNumberAndDates(_ListUnits, dtpCheckInDate.Value.Date, dtpCheckOutDate.Value.Date);
+
+            bool IsConflict = false;
+            if (dt.Rows.Count > 0)
+            {
+                lblAlert.Text = "";
+                foreach (DataRow row in dt.Rows)
                 {
-                    btnSave.Enabled = true;
-                    lblAlert.Visible = false;
+                    if (Convert.ToDateTime(row["CheckOutDate"]).ToShortDateString() != dtpCheckInDate.Value.ToShortDateString())
+                    {
+                        lblAlert.Text += $"{row["RoomNumber"]} Is Booked From {Convert.ToDateTime(row["CheckInDate"]).ToShortDateString()} To {Convert.ToDateTime(row["CheckOutDate"]).ToShortDateString()}\n";
+                        IsConflict = true;
+                    }
                 }
+            }
 
-
+            if (IsConflict)
+            {
+                btnSave.Enabled = false;
+                lblAlert.Visible = true;
             }
             else
             {
                 btnSave.Enabled = true;
                 lblAlert.Visible = false;
             }
+        }
+
+        private void dtpCheckInDate_ValueChanged(object sender, EventArgs e)
+        {
+            HandleIfCheckInDateAfter12AMOrBefore();
+
+            if (_Mode == enMode.Singular)
+                CheckConflictForSingular();
+            else
+                CheckConflictForPlural();
         }
 
         private void dtpCheckOutDate_ValueChanged(object sender, EventArgs e)
         {
-
-            if (clsReservationRooms.IsReservationRoomWithDateByRoomNumber(_RoomNumber, dtpCheckInDate.Value, dtpCheckOutDate.Value))
-            {
-                clsReservationRooms Temp = clsReservationRooms.GetReservationRoomWithDateByRoomNumber(clsRooms.GetRoomInfoByRoomNumber(_RoomNumber).RoomID, dtpCheckInDate.Value, dtpCheckOutDate.Value);
-
-                if (Temp.CheckOutDate.ToShortDateString() != dtpCheckInDate.Value.ToShortDateString())
-                {
-                    lblAlert.Visible = true;
-                    lblAlert.Text = $"التاريخ يتعارض مع حجز اخر من {Temp.CheckInDate.ToShortDateString()} الى {Temp.CheckOutDate.ToShortDateString()}";
-                    btnSave.Enabled = false;
-                }
-                else
-                {
-                    btnSave.Enabled = true;
-                    lblAlert.Visible = false;
-                }
-
-
-            }
+            if (_Mode == enMode.Singular)
+                CheckConflictForSingular();
             else
-            {
-                btnSave.Enabled = true;
-                lblAlert.Visible = false;
-            }
-
+                CheckConflictForPlural();
         }
 
         private void btnSave_Click(object sender, EventArgs e)
         {
-
-            if (clsReservationRooms.IsReservationRoomWithDateByRoomNumber(_RoomNumber, dtpCheckInDate.Value, dtpCheckOutDate.Value))
-            {
-                clsReservationRooms Temp = clsReservationRooms.GetReservationRoomWithDateByRoomNumber(clsRooms.GetRoomInfoByRoomNumber(_RoomNumber).RoomID, dtpCheckInDate.Value, dtpCheckOutDate.Value);
-
-                if (Temp.CheckOutDate.ToShortDateString() != dtpCheckInDate.Value.ToShortDateString())
-                {
-                    lblAlert.Visible = true;
-                    lblAlert.Text = $"التاريخ يتعارض مع حجز اخر من {Temp.CheckInDate.ToShortDateString()} الى {Temp.CheckOutDate.ToShortDateString()}";
-                    btnSave.Enabled = false;
-                    return;
-                }
-                else
-                {
-                    btnSave.Enabled = true;
-                    lblAlert.Visible = false;
-                }
-
-
-            }
-            else
-            {
-                btnSave.Enabled = true;
-                lblAlert.Visible = false;
-            }
+            return;
+            CheckConflictForSingular();
 
             if (ctrPersonInfoWithFilter1.PersonID == -1)
             {
@@ -210,5 +196,11 @@ namespace HotelPresentationLayer.Reservations
             }
 
         }
+
+        private void btnClose_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
     }
 }
