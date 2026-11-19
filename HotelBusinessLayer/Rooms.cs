@@ -139,6 +139,23 @@ namespace HotelBusinessLayer
             return clsRoomsData.GetAllRooms();
         }
 
+        public static List<int> GetRoomIDsByRoomNumbers(List<int> RoomNumbers)
+        {
+            DataTable dtRoomIDs = clsRoomsData.GetRoomIDsByRoomNumbers(RoomNumbers);
+
+            if (dtRoomIDs.Rows.Count == 0)
+                return null;
+
+            List<int> result = new List<int>();
+
+            foreach(DataRow row in dtRoomIDs.Rows)
+            {
+                result.Add(Convert.ToInt32(row["RoomID"]));
+            }
+
+            return result;
+        }
+
         public bool Save()
         {
 

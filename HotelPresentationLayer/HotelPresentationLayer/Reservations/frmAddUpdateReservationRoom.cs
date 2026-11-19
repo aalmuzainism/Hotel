@@ -13,49 +13,29 @@ namespace HotelPresentationLayer.Reservations
 {
     public partial class frmAddUpdateReservationRoom : Form
     {
-        enum enMode { Singular = 0, Plural = 1 };
-        enMode _Mode = enMode.Singular;
-
         private List<int> _ListUnits;
 
         clsReservations NewReservation;
 
         clsReservationRooms NewReservationRoom;
 
-        int _RoomNumber = -1;
-
-        public frmAddUpdateReservationRoom(int RoomNumber)
-        {
-            InitializeComponent();
-
-            _Mode = enMode.Singular;
-            _RoomNumber = RoomNumber;
-        }
-
         public frmAddUpdateReservationRoom(List<int> ListUnits)
         {
             InitializeComponent();
 
-            _Mode = enMode.Plural;
             _ListUnits = ListUnits;
         }
 
         private void frmAddUpdateReservationRoom_Load(object sender, EventArgs e)
         {
-            if (_Mode == enMode.Singular)
+            txtListUnits.Text = "";
+            for (int index = 0; index < _ListUnits.Count(); index++)
             {
-                txtListUnits.Text = _RoomNumber.ToString();
+                txtListUnits.Text += _ListUnits[index].ToString();
+                if (index != _ListUnits.Count() - 1)
+                    txtListUnits.Text += ", ";
             }
-            else
-            {
-                txtListUnits.Text = "";
-                for (int index = 0; index < _ListUnits.Count(); index++)
-                {
-                    txtListUnits.Text += _ListUnits[index].ToString();
-                    if (index != _ListUnits.Count() - 1)
-                        txtListUnits.Text += ", ";
-                }
-            }
+
 
             dtpCheckInDate.MinDate = DateTime.Now;
             dtpCheckOutDate.MinDate = dtpCheckInDate.Value.AddDays(1);
@@ -80,25 +60,6 @@ namespace HotelPresentationLayer.Reservations
             {
                 dtpCheckOutDate.MinDate = dtpCheckInDate.Value.AddDays(1);
             }
-        }
-
-        private void CheckConflictForSingular()
-        {
-            clsReservationRooms Temp = clsReservationRooms.GetReservationRoomWithDateByRoomNumber
-            (clsRooms.GetRoomInfoByRoomNumber(_RoomNumber).RoomID, dtpCheckInDate.Value, dtpCheckOutDate.Value);
-
-            if (Temp != null)
-            {
-                if (Temp.CheckOutDate.ToShortDateString() != dtpCheckInDate.Value.ToShortDateString())
-                {
-                    lblAlert.Text = $"{_RoomNumber} Is Booked from {Temp.CheckInDate.ToShortDateString()} to {Temp.CheckOutDate.ToShortDateString()}";
-                    lblAlert.Visible = true;
-                    btnSave.Enabled = false;
-                    return;
-                }
-            }
-            lblAlert.Visible = false;
-            btnSave.Enabled = true;
         }
 
         private void CheckConflictForPlural()
@@ -135,24 +96,16 @@ namespace HotelPresentationLayer.Reservations
         {
             HandleIfCheckInDateAfter12AMOrBefore();
 
-            if (_Mode == enMode.Singular)
-                CheckConflictForSingular();
-            else
-                CheckConflictForPlural();
+            CheckConflictForPlural();
         }
 
         private void dtpCheckOutDate_ValueChanged(object sender, EventArgs e)
         {
-            if (_Mode == enMode.Singular)
-                CheckConflictForSingular();
-            else
-                CheckConflictForPlural();
+            CheckConflictForPlural();
         }
 
         private void btnSave_Click(object sender, EventArgs e)
         {
-            return;
-            CheckConflictForSingular();
 
             if (ctrPersonInfoWithFilter1.PersonID == -1)
             {
@@ -178,10 +131,19 @@ namespace HotelPresentationLayer.Reservations
                 return;
             }
 
+            List<int> RoomIDs = clsRooms.GetRoomIDsByRoomNumbers(_ListUnits);
+
+            if (RoomIDs == null)
+            {
+                NewReservation.DeleteReservation();
+                MessageBox.Show("No Data In dt");
+                return;
+            }
+
             NewReservationRoom = new clsReservationRooms();
 
             NewReservationRoom.ReservationID = NewReservation.ReservationID;
-            NewReservationRoom.RoomID = clsRooms.GetRoomInfoByRoomNumber(Convert.ToInt32(_RoomNumber)).RoomID;
+            NewReservationRoom.ListUnits = RoomIDs;
             NewReservationRoom.CheckInDate = dtpCheckInDate.Value;
             NewReservationRoom.CheckOutDate = dtpCheckOutDate.Value;
             NewReservationRoom.Status = 1;
