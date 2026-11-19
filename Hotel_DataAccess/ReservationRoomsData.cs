@@ -1000,6 +1000,55 @@ WHERE CAST( ReservationRooms.CheckOutDate AS date) = @CheckOutDate AND Reservati
             return dt;
         }
 
+        public static DataTable GetAllActiveReservationRooms()
+        {
+            DataTable dt = new DataTable();
+
+            SqlConnection connection = new SqlConnection(clsDataAccessSetings.ConnectionString);
+
+            string qeury = @"
+SELECT ReservationRooms.ReservationRoomID, People.NationalID, People.FirstName + ' ' + People.SecondName + ' ' + People.LastName as 'FullName',
+People.Phone, Rooms.RoomNumber, ReservationRooms.CheckInDate, ReservationRooms.CheckOutDate,
+CASE 
+WHEN ReservationRooms.Status = 1 THEN 'جديد'
+WHEN ReservationRooms.Status = 2 THEN 'قائم'
+WHEN ReservationRooms.Status = 3 THEN 'مكتمل'
+WHEN ReservationRooms.Status = 4 THEN 'ملغي'
+END AS status
+
+FROM ReservationRooms
+INNER JOIN Rooms ON Rooms.RoomID = ReservationRooms.RoomID
+INNER JOIN Reservations ON Reservations.ReservationID = ReservationRooms.ReservationID
+INNER JOIN People ON People.PersonID = Reservations.PersonID
+WHERE ReservationRooms.Status = 2";
+
+            SqlCommand command = new SqlCommand(qeury, connection);
+
+            try
+            {
+                connection.Open();
+
+                SqlDataReader reader = command.ExecuteReader();
+
+                if (reader.HasRows)
+                {
+                    dt.Load(reader);
+                }
+
+                reader.Close();
+            }
+            catch (Exception ex)
+            {
+                 //Console.WriteLine("Error: " + ex.Message);
+            }
+            finally
+            {
+                connection.Close();
+            }
+
+            return dt;
+        }
+
         public static DataTable GetAllReservationRoomsForPersonByNationalID(string NationalID)
         {
             DataTable dt = new DataTable();

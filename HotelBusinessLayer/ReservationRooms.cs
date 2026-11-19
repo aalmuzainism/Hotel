@@ -178,6 +178,11 @@ namespace HotelBusinessLayer
             return clsReservationRoomsData.GetAllReservationRoomsCheckOutToday(CheckOutDate);
         }
 
+        public static DataTable GetAllActiveReservationRooms()
+        {
+            return clsReservationRoomsData.GetAllActiveReservationRooms();
+        }
+
         public static DataTable GetAllReservationRoomsByNationalID(string NationalID)
         {
             return clsReservationRoomsData.GetAllReservationRoomsByNationalID(NationalID);
