@@ -141,20 +141,12 @@ namespace HotelPresentationLayer.Reservations
                 btnSearchText.Visible = false;
                 txtSearch.Visible = false;
                 groupBox1.Visible = false;
-                dgvListAllReservationRoomForPerson.Visible = false;
-                flpListRooms.Visible = true;
+                DataTable dt = clsReservationRooms.GetAllReservationRoomsCheckInToday(DateTime.Today);
+                dgvListAllReservationRoomForPerson.DataSource = dt;
+                flpListRooms.Visible = false;
+                dgvListAllReservationRoomForPerson.Visible = true;
                 txtSearch.Clear();
                 flpListRooms.Controls.Clear();
-                DataTable dt = clsReservationRooms.GetAllReservationRoomsCheckInToday(DateTime.Today);
-
-                foreach (DataRow row in dt.Rows)
-                {
-                    ctrCardRoomDetails RoomCard = new ctrCardRoomDetails();
-                    RoomCard.LoadRoomInfoByRoomID(Convert.ToInt32(row["RoomID"]));
-                    RoomCard.DataBack += DataBack;
-
-                    flpListRooms.Controls.Add(RoomCard);
-                }
 
             }
             else if (cbFilter.SelectedIndex == 2)
@@ -162,21 +154,14 @@ namespace HotelPresentationLayer.Reservations
                 btnSearchText.Visible = false;
                 txtSearch.Visible = false;
                 groupBox1.Visible = false;
-                dgvListAllReservationRoomForPerson.Visible = false;
-                flpListRooms.Visible = true;
+                DataTable dt = clsReservationRooms.GetAllReservationRoomsCheckOutToday(DateTime.Today);
+                dgvListAllReservationRoomForPerson.DataSource = dt;
+                flpListRooms.Visible = false;
+                dgvListAllReservationRoomForPerson.Visible = true;
                 txtSearch.Clear();
                 flpListRooms.Controls.Clear();
 
-                DataTable dt = clsReservationRooms.GetAllReservationRoomsCheckOutToday(DateTime.Today);
 
-                foreach (DataRow row in dt.Rows)
-                {
-                    ctrCardRoomDetails RoomCard = new ctrCardRoomDetails();
-                    RoomCard.LoadRoomInfoByRoomID(Convert.ToInt32(row["RoomID"]));
-                    RoomCard.DataBack += DataBack;
-
-                    flpListRooms.Controls.Add(RoomCard);
-                }
             }
             else if (cbFilter.SelectedIndex == 3)
             {
@@ -245,26 +230,29 @@ namespace HotelPresentationLayer.Reservations
                 if (dgvListAllReservationRoomForPerson.Rows.Count > 0)
                 {
 
-                    dgvListAllReservationRoomForPerson.Columns[0].HeaderText = "الهوية الوطنية";
-                    dgvListAllReservationRoomForPerson.Columns[0].Width = 140;
+                    dgvListAllReservationRoomForPerson.Columns[0].HeaderText = "R.R.ID";
+                    dgvListAllReservationRoomForPerson.Columns[0].Width = 100;
 
-                    dgvListAllReservationRoomForPerson.Columns[1].HeaderText = "الاسم";
-                    dgvListAllReservationRoomForPerson.Columns[1].Width = 300;
+                    dgvListAllReservationRoomForPerson.Columns[1].HeaderText = "الهوية الوطنية";
+                    dgvListAllReservationRoomForPerson.Columns[1].Width = 140;
 
-                    dgvListAllReservationRoomForPerson.Columns[2].HeaderText = "الرقم";
-                    dgvListAllReservationRoomForPerson.Columns[2].Width = 120;
+                    dgvListAllReservationRoomForPerson.Columns[2].HeaderText = "الاسم";
+                    dgvListAllReservationRoomForPerson.Columns[2].Width = 300;
 
-                    dgvListAllReservationRoomForPerson.Columns[3].HeaderText = "رقم الوحده";
-                    dgvListAllReservationRoomForPerson.Columns[3].Width = 100;
+                    dgvListAllReservationRoomForPerson.Columns[3].HeaderText = "الرقم";
+                    dgvListAllReservationRoomForPerson.Columns[3].Width = 120;
 
-                    dgvListAllReservationRoomForPerson.Columns[4].HeaderText = "تاريخ الدخول";
-                    dgvListAllReservationRoomForPerson.Columns[4].Width = 200;
+                    dgvListAllReservationRoomForPerson.Columns[4].HeaderText = "رقم الوحده";
+                    dgvListAllReservationRoomForPerson.Columns[4].Width = 100;
 
-                    dgvListAllReservationRoomForPerson.Columns[5].HeaderText = "تاريخ الخروج";
+                    dgvListAllReservationRoomForPerson.Columns[5].HeaderText = "تاريخ الدخول";
                     dgvListAllReservationRoomForPerson.Columns[5].Width = 200;
 
-                    dgvListAllReservationRoomForPerson.Columns[6].HeaderText = "الحاله";
-                    dgvListAllReservationRoomForPerson.Columns[6].Width = 150;
+                    dgvListAllReservationRoomForPerson.Columns[6].HeaderText = "تاريخ الخروج";
+                    dgvListAllReservationRoomForPerson.Columns[6].Width = 200;
+
+                    dgvListAllReservationRoomForPerson.Columns[7].HeaderText = "الحاله";
+                    dgvListAllReservationRoomForPerson.Columns[7].Width = 150;
 
 
                 }
@@ -327,8 +315,8 @@ namespace HotelPresentationLayer.Reservations
 
             if (dgvListAllReservationRoomForPerson.CurrentRow != null)
             {
-                string strNationalID = (string)dgvListAllReservationRoomForPerson.CurrentRow.Cells[0].Value;
-                int RM = (int)dgvListAllReservationRoomForPerson.CurrentRow.Cells[3].Value;
+                string strNationalID = (string)dgvListAllReservationRoomForPerson.CurrentRow.Cells[1].Value;
+                int RM = (int)dgvListAllReservationRoomForPerson.CurrentRow.Cells[4].Value;
 
                 _liRoomNumbers.Add(RM);
 
@@ -349,8 +337,8 @@ namespace HotelPresentationLayer.Reservations
 
             if (dgvListAllReservationRoomForPerson.CurrentRow != null)
             {
-                string strNationalID = (string)dgvListAllReservationRoomForPerson.CurrentRow.Cells[0].Value;
-                int RM = (int)dgvListAllReservationRoomForPerson.CurrentRow.Cells[3].Value;
+                string strNationalID = (string)dgvListAllReservationRoomForPerson.CurrentRow.Cells[1].Value;
+                int RM = (int)dgvListAllReservationRoomForPerson.CurrentRow.Cells[4].Value;
 
                 _liRoomNumbers.Add(RM);
 
@@ -371,8 +359,8 @@ namespace HotelPresentationLayer.Reservations
 
             if (dgvListAllReservationRoomForPerson.CurrentRow != null)
             {
-                string strNationalID = (string)dgvListAllReservationRoomForPerson.CurrentRow.Cells[0].Value;
-                int RM = (int)dgvListAllReservationRoomForPerson.CurrentRow.Cells[3].Value;
+                string strNationalID = (string)dgvListAllReservationRoomForPerson.CurrentRow.Cells[1].Value;
+                int RM = (int)dgvListAllReservationRoomForPerson.CurrentRow.Cells[4].Value;
 
                 _liRoomNumbers.Add(RM);
 
