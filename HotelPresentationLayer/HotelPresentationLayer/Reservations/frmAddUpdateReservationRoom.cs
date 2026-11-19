@@ -19,6 +19,9 @@ namespace HotelPresentationLayer.Reservations
 
         clsReservationRooms NewReservationRoom;
 
+        DateTime CheckInDate;
+        DateTime CheckOutDate;
+
         public frmAddUpdateReservationRoom(List<int> ListUnits)
         {
             InitializeComponent();
@@ -62,21 +65,30 @@ namespace HotelPresentationLayer.Reservations
             }
         }
 
-        private void CheckConflictForPlural()
+        private void CheckConflicts()
         {
-            DataTable dt = clsReservationRooms.GetConflictByRoomNumberAndDates(_ListUnits, dtpCheckInDate.Value.Date, dtpCheckOutDate.Value.Date);
+            string strCheckInDate = dtpCheckInDate.Value.ToShortDateString();
+            string strCheckOutDate = dtpCheckOutDate.Value.ToShortDateString();
+
+            if (strCheckInDate == strCheckOutDate)
+                CheckInDate = dtpCheckInDate.Value;
+            else
+
+                CheckInDate = Convert.ToDateTime(strCheckInDate).Add(new TimeSpan(14, 0, 0));
+
+            CheckOutDate = Convert.ToDateTime(strCheckOutDate).Add(new TimeSpan(12, 0, 0));
+
+            DataTable dt = clsReservationRooms.GetConflictByRoomNumberAndDates(_ListUnits, CheckInDate, CheckOutDate);
 
             bool IsConflict = false;
             if (dt.Rows.Count > 0)
             {
                 lblAlert.Text = "";
+                IsConflict = true;
+
                 foreach (DataRow row in dt.Rows)
                 {
-                    if (Convert.ToDateTime(row["CheckOutDate"]).ToShortDateString() != dtpCheckInDate.Value.ToShortDateString())
-                    {
-                        lblAlert.Text += $"{row["RoomNumber"]} Is Booked From {Convert.ToDateTime(row["CheckInDate"]).ToShortDateString()} To {Convert.ToDateTime(row["CheckOutDate"]).ToShortDateString()}\n";
-                        IsConflict = true;
-                    }
+                    lblAlert.Text += $"{row["RoomNumber"]} Is Booked From {Convert.ToDateTime(row["CheckInDate"]).ToShortDateString()} To {Convert.ToDateTime(row["CheckOutDate"]).ToShortDateString()}\n";
                 }
             }
 
@@ -96,12 +108,12 @@ namespace HotelPresentationLayer.Reservations
         {
             HandleIfCheckInDateAfter12AMOrBefore();
 
-            CheckConflictForPlural();
+            CheckConflicts();
         }
 
         private void dtpCheckOutDate_ValueChanged(object sender, EventArgs e)
         {
-            CheckConflictForPlural();
+            CheckConflicts();
         }
 
         private void btnSave_Click(object sender, EventArgs e)
@@ -144,8 +156,8 @@ namespace HotelPresentationLayer.Reservations
 
             NewReservationRoom.ReservationID = NewReservation.ReservationID;
             NewReservationRoom.ListUnits = RoomIDs;
-            NewReservationRoom.CheckInDate = dtpCheckInDate.Value;
-            NewReservationRoom.CheckOutDate = dtpCheckOutDate.Value;
+            NewReservationRoom.CheckInDate = CheckInDate;
+            NewReservationRoom.CheckOutDate = CheckOutDate;
             NewReservationRoom.Status = 1;
 
             if (NewReservationRoom.Save())
