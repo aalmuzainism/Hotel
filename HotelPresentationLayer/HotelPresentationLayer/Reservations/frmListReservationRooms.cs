@@ -24,6 +24,8 @@ namespace HotelPresentationLayer.Reservations
 
         private List<int> _liRoomNumbers = new List<int>();
 
+        DataTable _dtFilter;
+
         public frmListReservationRooms()
         {
             InitializeComponent();
@@ -141,8 +143,8 @@ namespace HotelPresentationLayer.Reservations
                 btnSearchText.Visible = false;
                 txtSearch.Visible = false;
                 groupBox1.Visible = false;
-                DataTable dt = clsReservationRooms.GetAllReservationRoomsCheckInToday(DateTime.Today);
-                dgvListAllReservationRoomForPerson.DataSource = dt;
+                _dtFilter = clsReservationRooms.GetAllReservationRoomsCheckInToday(DateTime.Today);
+                dgvListAllReservationRoomForPerson.DataSource = _dtFilter;
                 flpListRooms.Visible = false;
                 dgvListAllReservationRoomForPerson.Visible = true;
                 txtSearch.Clear();
@@ -154,8 +156,8 @@ namespace HotelPresentationLayer.Reservations
                 btnSearchText.Visible = false;
                 txtSearch.Visible = false;
                 groupBox1.Visible = false;
-                DataTable dt = clsReservationRooms.GetAllReservationRoomsCheckOutToday(DateTime.Today);
-                dgvListAllReservationRoomForPerson.DataSource = dt;
+                _dtFilter = clsReservationRooms.GetAllReservationRoomsCheckOutToday(DateTime.Today);
+                dgvListAllReservationRoomForPerson.DataSource = _dtFilter;
                 flpListRooms.Visible = false;
                 dgvListAllReservationRoomForPerson.Visible = true;
                 txtSearch.Clear();
@@ -167,6 +169,18 @@ namespace HotelPresentationLayer.Reservations
             {
                 btnSearchText.Visible = false;
                 txtSearch.Visible = false;
+                groupBox1.Visible = false;
+                _dtFilter = clsReservationRooms.GetAllActiveReservationRooms();
+                dgvListAllReservationRoomForPerson.DataSource = _dtFilter;
+                flpListRooms.Visible = false;
+                dgvListAllReservationRoomForPerson.Visible = true;
+                txtSearch.Clear();
+                flpListRooms.Controls.Clear();
+            }
+            else if (cbFilter.SelectedIndex == 4)
+            {
+                btnSearchText.Visible = false;
+                txtSearch.Visible = false;
                 groupBox1.Visible = true;
                 dgvListAllReservationRoomForPerson.Visible = false;
                 flpListRooms.Visible = true;
@@ -174,7 +188,7 @@ namespace HotelPresentationLayer.Reservations
                 dtpCheckIn.MinDate = DateTime.Now;
                 dtpCheckOut.MinDate = DateTime.Now.AddDays(1);
             }
-            else if (cbFilter.SelectedIndex == 4)
+            else if (cbFilter.SelectedIndex == 5)
             {
                 txtSearch.Visible = true;
                 btnSearchText.Visible = true;
