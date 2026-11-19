@@ -904,8 +904,21 @@ namespace Hotel_DataAccess
 
             SqlConnection connection = new SqlConnection(clsDataAccessSetings.ConnectionString);
 
-            string qeury = @"SELECT * FROM ReservationRooms
-                            WHERE CAST( ReservationRooms.CheckInDate AS date) = @CheckInDate AND ReservationRooms.Status = 1";
+            string qeury = @"
+SELECT ReservationRooms.ReservationRoomID, People.NationalID, People.FirstName + ' ' + People.SecondName + ' ' + People.LastName as 'FullName',
+People.Phone, Rooms.RoomNumber, ReservationRooms.CheckInDate, ReservationRooms.CheckOutDate,
+CASE 
+WHEN ReservationRooms.Status = 1 THEN 'جديد'
+WHEN ReservationRooms.Status = 2 THEN 'قائم'
+WHEN ReservationRooms.Status = 3 THEN 'مكتمل'
+WHEN ReservationRooms.Status = 4 THEN 'ملغي'
+END AS status
+
+FROM ReservationRooms
+INNER JOIN Rooms ON Rooms.RoomID = ReservationRooms.RoomID
+INNER JOIN Reservations ON Reservations.ReservationID = ReservationRooms.ReservationID
+INNER JOIN People ON People.PersonID = Reservations.PersonID
+WHERE CAST( ReservationRooms.CheckInDate AS date) = @CheckInDate AND ReservationRooms.Status = 1";
 
             SqlCommand command = new SqlCommand(qeury, connection);
 
@@ -942,8 +955,21 @@ namespace Hotel_DataAccess
 
             SqlConnection connection = new SqlConnection(clsDataAccessSetings.ConnectionString);
 
-            string qeury = @"SELECT * FROM ReservationRooms
-                            WHERE CAST( ReservationRooms.CheckOutDate AS date) = @CheckOutDate AND (ReservationRooms.Status = 2 OR ReservationRooms.Status = 1)";
+            string qeury = @"
+SELECT ReservationRooms.ReservationRoomID, People.NationalID, People.FirstName + ' ' + People.SecondName + ' ' + People.LastName as 'FullName',
+People.Phone, Rooms.RoomNumber, ReservationRooms.CheckInDate, ReservationRooms.CheckOutDate,
+CASE 
+WHEN ReservationRooms.Status = 1 THEN 'جديد'
+WHEN ReservationRooms.Status = 2 THEN 'قائم'
+WHEN ReservationRooms.Status = 3 THEN 'مكتمل'
+WHEN ReservationRooms.Status = 4 THEN 'ملغي'
+END AS status
+
+FROM ReservationRooms
+INNER JOIN Rooms ON Rooms.RoomID = ReservationRooms.RoomID
+INNER JOIN Reservations ON Reservations.ReservationID = ReservationRooms.ReservationID
+INNER JOIN People ON People.PersonID = Reservations.PersonID
+WHERE CAST( ReservationRooms.CheckOutDate AS date) = @CheckOutDate AND ReservationRooms.Status = 2";
 
             SqlCommand command = new SqlCommand(qeury, connection);
 
@@ -1067,7 +1093,7 @@ namespace Hotel_DataAccess
             using (SqlConnection connection = new SqlConnection(clsDataAccessSetings.ConnectionString))
             {
 
-                string query = @"SELECT  People.NationalID, People.FirstName + ' ' + People.SecondName + ' ' + People.LastName as 'FullName',
+                string query = @"SELECT ReservationRooms.ReservationRoomID, People.NationalID, People.FirstName + ' ' + People.SecondName + ' ' + People.LastName as 'FullName',
                                 People.Phone, Rooms.RoomNumber, ReservationRooms.CheckInDate, ReservationRooms.CheckOutDate,
 
                                 CASE 
