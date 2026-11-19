@@ -46,7 +46,7 @@
             this.dgvListPeople.AllowUserToAddRows = false;
             this.dgvListPeople.AllowUserToDeleteRows = false;
             this.dgvListPeople.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.dgvListPeople.BackgroundColor = System.Drawing.Color.White;
+            this.dgvListPeople.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(36)))), ((int)(((byte)(58)))));
             this.dgvListPeople.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvListPeople.ContextMenuStrip = this.contextMenuStrip1;
             this.dgvListPeople.Location = new System.Drawing.Point(12, 417);

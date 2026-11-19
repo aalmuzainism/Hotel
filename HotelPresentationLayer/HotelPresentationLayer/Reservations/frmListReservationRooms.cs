@@ -22,6 +22,8 @@ namespace HotelPresentationLayer.Reservations
 
         private List<int> _ListUnits = new List<int>();
 
+        private List<int> _liRoomNumbers = new List<int>();
+
         public frmListReservationRooms()
         {
             InitializeComponent();
@@ -58,6 +60,9 @@ namespace HotelPresentationLayer.Reservations
 
         private void contextMenuStrip1_Opening(object sender, CancelEventArgs e)
         {
+            if (_RoomNumber == -1)
+                return;
+
             _Room = clsRooms.GetRoomInfoByRoomNumber(_RoomNumber);
 
             if (_Room != null)
@@ -69,31 +74,20 @@ namespace HotelPresentationLayer.Reservations
                     if (ReservationRoom.Status == 1)
                     {
                         bookingDetailsToolStripMenuItem.Enabled = true;
-                        checkInToolStripMenuItem.Enabled = true;
-                        checkOutToolStripMenuItem.Enabled = false;
-                        cancelToolStripMenuItem.Enabled = true;
+
                     }
                     else if (ReservationRoom.Status == 2)
                     {
                         bookingDetailsToolStripMenuItem.Enabled = true;
-                        checkInToolStripMenuItem.Enabled = false;
-                        checkOutToolStripMenuItem.Enabled = true;
-                        cancelToolStripMenuItem.Enabled = false;
                     }
                     else
                     {
                         bookingDetailsToolStripMenuItem.Enabled = false;
-                        checkInToolStripMenuItem.Enabled = false;
-                        checkOutToolStripMenuItem.Enabled = false;
-                        cancelToolStripMenuItem.Enabled = false;
                     }
                 }
                 else
                 {
                     bookingDetailsToolStripMenuItem.Enabled = false;
-                    checkInToolStripMenuItem.Enabled = false;
-                    checkOutToolStripMenuItem.Enabled = false;
-                    cancelToolStripMenuItem.Enabled = false;
                 }
             }
 
@@ -113,11 +107,19 @@ namespace HotelPresentationLayer.Reservations
             {
                 MessageBox.Show("الوحدة غير محجوزة", "Notes");
             }
+
         }
 
         private void reservationToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            frmAddUpdateReservationRoom frm = new frmAddUpdateReservationRoom(_RoomNumber);
+            if (_RoomNumber == -1)
+                return;
+
+            _ListUnits.Clear();
+            _ListUnits.Add(_RoomNumber);
+            _FillTxtListUnits();
+
+            frmAddUpdateReservationRoom frm = new frmAddUpdateReservationRoom(_ListUnits);
             frm.ShowDialog();
             frmListReservationRooms_Load(null, null);
         }
@@ -129,6 +131,8 @@ namespace HotelPresentationLayer.Reservations
                 btnSearchText.Visible = false;
                 txtSearch.Visible = false;
                 groupBox1.Visible = false;
+                dgvListAllReservationRoomForPerson.Visible = false;
+                flpListRooms.Visible = true;
                 txtSearch.Clear();
                 _RefreshList();
             }
@@ -137,6 +141,8 @@ namespace HotelPresentationLayer.Reservations
                 btnSearchText.Visible = false;
                 txtSearch.Visible = false;
                 groupBox1.Visible = false;
+                dgvListAllReservationRoomForPerson.Visible = false;
+                flpListRooms.Visible = true;
                 txtSearch.Clear();
                 flpListRooms.Controls.Clear();
                 DataTable dt = clsReservationRooms.GetAllReservationRoomsCheckInToday(DateTime.Today);
@@ -156,6 +162,8 @@ namespace HotelPresentationLayer.Reservations
                 btnSearchText.Visible = false;
                 txtSearch.Visible = false;
                 groupBox1.Visible = false;
+                dgvListAllReservationRoomForPerson.Visible = false;
+                flpListRooms.Visible = true;
                 txtSearch.Clear();
                 flpListRooms.Controls.Clear();
 
@@ -175,6 +183,8 @@ namespace HotelPresentationLayer.Reservations
                 btnSearchText.Visible = false;
                 txtSearch.Visible = false;
                 groupBox1.Visible = true;
+                dgvListAllReservationRoomForPerson.Visible = false;
+                flpListRooms.Visible = true;
                 txtSearch.Clear();
                 dtpCheckIn.MinDate = DateTime.Now;
                 dtpCheckOut.MinDate = DateTime.Now.AddDays(1);
@@ -184,6 +194,8 @@ namespace HotelPresentationLayer.Reservations
                 txtSearch.Visible = true;
                 btnSearchText.Visible = true;
                 groupBox1.Visible = false;
+                dgvListAllReservationRoomForPerson.Visible = true;
+                flpListRooms.Visible = false;
                 txtSearch.Clear();
             }
         }
@@ -210,101 +222,6 @@ namespace HotelPresentationLayer.Reservations
 
         }
 
-        private void checkInToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            clsReservationRooms ReservationRoomCheckIn = clsReservationRooms.GetReservationRoomInfoByRoomIDForCheckIn(_Room.RoomID);
-
-
-            if (ReservationRoomCheckIn != null)
-            {
-
-                if (ReservationRoomCheckIn.Status == 1)
-                {
-                    if (ReservationRoomCheckIn.CheckIn(1))
-                    {
-                        MessageBox.Show("تم تسجيل الدخول", "Checked in Successfully.");
-                    }
-                    else
-                    {
-                        MessageBox.Show("هناك خطأ ما.", "Error.");
-                    }
-                }
-                else if (ReservationRoomCheckIn.Status == 2)
-                {
-                    MessageBox.Show("لا يمكن تكرار تسجيل الدخول", "Person Alredy Checked In.");
-                }
-                else
-                {
-                    MessageBox.Show("هناك خطأ ما.", "Error.");
-                }
-
-            }
-            else
-            {
-                MessageBox.Show("لايوجد حجز", "Error.");
-            }
-
-        }
-
-        private void checkOutToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            clsReservationRooms ReservationRoomCheckOut = clsReservationRooms.GetReservationRoomInfoByRoomIDForCheckOut(_Room.RoomID);
-
-            if (ReservationRoomCheckOut != null)
-            {
-
-                if (ReservationRoomCheckOut.Status == 2)
-                {
-                    if (ReservationRoomCheckOut.CheckOut(1))
-                    {
-                        MessageBox.Show("تم تسجيل الخروج", "Checked in Successfully.");
-                        frmListReservationRooms_Load(null, null);
-                    }
-                    else
-                    {
-                        MessageBox.Show("هناك خطأ ما.", "Error.");
-                    }
-                }
-                else if (ReservationRoomCheckOut.CheckInBy == -1 || ReservationRoomCheckOut.Status == 2)
-                {
-                    MessageBox.Show("يجب تسجيل الدخول اولا", "Wrong.");
-                }
-                else
-                {
-                    MessageBox.Show("هناك خطأ", "Error");
-                }
-
-            }
-            else
-            {
-                MessageBox.Show("لايوجد حجز", "Error.");
-            }
-        }
-
-        private void cancelToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            clsReservationRooms ReservationRoom = clsReservationRooms.GetReservationRoomInfoByRoomID(_Room.RoomID);
-
-            if (ReservationRoom != null)
-            {
-                if (MessageBox.Show($"هل انت متاكد من الغاء الحجز للوحدة رقم {ReservationRoom.RoomInfo.RoomNumber}", "تأكيد", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
-                {
-
-                    if (ReservationRoom.Cancel())
-                    {
-                        MessageBox.Show("تم الغاء الحجز", "تنبيه", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                        frmListReservationRooms_Load(null, null);
-                    }
-                    else
-                    {
-                        MessageBox.Show("هناك خطأ", "تنبيه", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    }
-
-                }
-            }
-
-        }
-
         private void txtSearch_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (!char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar))
@@ -317,25 +234,41 @@ namespace HotelPresentationLayer.Reservations
         {
 
             if (string.IsNullOrEmpty(txtSearch.Text))
-            {
                 return;
-            }
+
 
             if (clsPerson.IsPersonExistByNationalID(txtSearch.Text.Trim()))
             {
+                DataTable dt = clsReservationRooms.GetAllReservationRoomsByNationalID(txtSearch.Text.Trim());
+                dgvListAllReservationRoomForPerson.DataSource = dt;
 
-                flpListRooms.Controls.Clear();
-
-                DataTable dt = clsReservationRooms.GetAllReservationRoomsForPersonByNationalID(txtSearch.Text.Trim());
-
-                foreach (DataRow row in dt.Rows)
+                if (dgvListAllReservationRoomForPerson.Rows.Count > 0)
                 {
-                    ctrCardRoomDetails RoomCard = new ctrCardRoomDetails();
-                    RoomCard.LoadRoomInfoByRoomID(Convert.ToInt32(row["RoomID"]));
-                    RoomCard.DataBack += DataBack;
 
-                    flpListRooms.Controls.Add(RoomCard);
+                    dgvListAllReservationRoomForPerson.Columns[0].HeaderText = "الهوية الوطنية";
+                    dgvListAllReservationRoomForPerson.Columns[0].Width = 140;
+
+                    dgvListAllReservationRoomForPerson.Columns[1].HeaderText = "الاسم";
+                    dgvListAllReservationRoomForPerson.Columns[1].Width = 300;
+
+                    dgvListAllReservationRoomForPerson.Columns[2].HeaderText = "الرقم";
+                    dgvListAllReservationRoomForPerson.Columns[2].Width = 120;
+
+                    dgvListAllReservationRoomForPerson.Columns[3].HeaderText = "رقم الوحده";
+                    dgvListAllReservationRoomForPerson.Columns[3].Width = 100;
+
+                    dgvListAllReservationRoomForPerson.Columns[4].HeaderText = "تاريخ الدخول";
+                    dgvListAllReservationRoomForPerson.Columns[4].Width = 200;
+
+                    dgvListAllReservationRoomForPerson.Columns[5].HeaderText = "تاريخ الخروج";
+                    dgvListAllReservationRoomForPerson.Columns[5].Width = 200;
+
+                    dgvListAllReservationRoomForPerson.Columns[6].HeaderText = "الحاله";
+                    dgvListAllReservationRoomForPerson.Columns[6].Width = 150;
+
+
                 }
+
             }
             else
                 MessageBox.Show("لم يتم العثور على الشخص", "تنبيه", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -386,6 +319,72 @@ namespace HotelPresentationLayer.Reservations
 
             frmAddUpdateReservationRoom frm = new frmAddUpdateReservationRoom(_ListUnits);
             frm.ShowDialog();
+        }
+
+        private void checkInToolStripMenuItem_Click_1(object sender, EventArgs e)
+        {
+            _liRoomNumbers.Clear();
+
+            if (dgvListAllReservationRoomForPerson.CurrentRow != null)
+            {
+                string strNationalID = (string)dgvListAllReservationRoomForPerson.CurrentRow.Cells[0].Value;
+                int RM = (int)dgvListAllReservationRoomForPerson.CurrentRow.Cells[3].Value;
+
+                _liRoomNumbers.Add(RM);
+
+                if (clsReservationRooms.CheckIn(strNationalID, _liRoomNumbers, 1))
+                {
+                    MessageBox.Show("Done");
+                }
+                else
+                {
+                    MessageBox.Show("error");
+                }
+            }
+        }
+
+        private void checkOutToolStripMenuItem_Click_1(object sender, EventArgs e)
+        {
+            _liRoomNumbers.Clear();
+
+            if (dgvListAllReservationRoomForPerson.CurrentRow != null)
+            {
+                string strNationalID = (string)dgvListAllReservationRoomForPerson.CurrentRow.Cells[0].Value;
+                int RM = (int)dgvListAllReservationRoomForPerson.CurrentRow.Cells[3].Value;
+
+                _liRoomNumbers.Add(RM);
+
+                if (clsReservationRooms.CheckOut(strNationalID, _liRoomNumbers, 1))
+                {
+                    MessageBox.Show("Done");
+                }
+                else
+                {
+                    MessageBox.Show("Error");
+                }
+            }
+        }
+
+        private void cancelToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            _liRoomNumbers.Clear();
+
+            if (dgvListAllReservationRoomForPerson.CurrentRow != null)
+            {
+                string strNationalID = (string)dgvListAllReservationRoomForPerson.CurrentRow.Cells[0].Value;
+                int RM = (int)dgvListAllReservationRoomForPerson.CurrentRow.Cells[3].Value;
+
+                _liRoomNumbers.Add(RM);
+
+                if (clsReservationRooms.Cancel(strNationalID, _liRoomNumbers))
+                {
+                    MessageBox.Show("Done");
+                }
+                else
+                {
+                    MessageBox.Show("Error");
+                }
+            }
         }
     }
 }

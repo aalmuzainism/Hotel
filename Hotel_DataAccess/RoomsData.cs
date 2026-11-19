@@ -166,7 +166,7 @@ namespace Hotel_DataAccess
             }
 
             return RoomID;
-            
+
         }
 
         public static bool UpdateRoom(int RoomID, int RoomTypeID, int RoomNumber, byte RoomCount, byte KingBedCount, byte SingleBedCount, byte LivingRoomCount,
@@ -385,6 +385,43 @@ namespace Hotel_DataAccess
             return dt;
         }
 
+        public static DataTable GetRoomIDsByRoomNumbers(List<int> RoomNumbers)
+        {
+            DataTable dt = new DataTable();
+
+            SqlConnection connection = new SqlConnection(clsDataAccessSetings.ConnectionString);
+
+            string strRoomNumber = string.Join(", ", RoomNumbers);
+
+            string qeury = $@"SELECT Rooms.RoomID FROM Rooms
+                            WHERE Rooms.RoomNumber IN ({strRoomNumber})";
+
+            SqlCommand command = new SqlCommand(qeury, connection);
+
+            try
+            {
+                connection.Open();
+
+                SqlDataReader reader = command.ExecuteReader();
+
+                if (reader.HasRows)
+                {
+                    dt.Load(reader);
+                }
+
+                reader.Close();
+            }
+            catch (Exception ex)
+            {
+                // Console.WriteLine("Error: " + ex.Message);
+            }
+            finally
+            {
+                connection.Close();
+            }
+
+            return dt;
+        }
 
     }
 }

@@ -18,6 +18,7 @@ namespace HotelBusinessLayer
         public int ReservationID { get; set; }
         public clsReservations ReservationInfo { get; set; }
         public int RoomID { get; set; }
+        public List<int> ListUnits { get; set; }
         public clsRooms RoomInfo { get; set; }
         public DateTime CheckInDate { get; set; }
         public int CheckInBy { get; set; }
@@ -33,6 +34,7 @@ namespace HotelBusinessLayer
             this.ReservationRoomID = -1;
             this.ReservationID = -1;
             this.RoomID = -1;
+            this.ListUnits = new List<int>();
             this.CheckInDate = DateTime.MaxValue;
             this.CheckInBy = -1;
             this.CheckOutDate = DateTime.MaxValue;
@@ -50,6 +52,7 @@ namespace HotelBusinessLayer
             this.ReservationID = ReservationID;
             this.ReservationInfo = clsReservations.GetReservationInfoByID(ReservationID);
             this.RoomID = RoomID;
+            this.ListUnits = new List<int>();
             this.RoomInfo = clsRooms.GetRoomInfoByID(RoomID);
             this.CheckInDate = CheckInDate;
             this.CheckInBy = CheckInBy;
@@ -115,47 +118,9 @@ namespace HotelBusinessLayer
             }
         }
 
-        public static clsReservationRooms GetReservationRoomInfoByRoomIDForCheckIn(int RoomID)
-        {
-            int ReservationRoomID = -1, ReservationID = -1, CheckInBy = -1, CheckOutBy = -1;
-            byte Status = 0;
-            DateTime CheckInDate = DateTime.Now, CheckOutDate = DateTime.Now, ActualCheckOutDate = DateTime.MaxValue;
-
-            if (clsReservationRoomsData.GetReservationRoomInfoByRoomID(RoomID, ref ReservationRoomID, ref ReservationID, ref CheckInDate, ref CheckInBy,
-                                                    ref CheckOutDate, ref ActualCheckOutDate, ref CheckOutBy, ref Status))
-            {
-                return new clsReservationRooms(ReservationRoomID, ReservationID, RoomID, CheckInDate, CheckInBy,
-                                                           CheckOutDate, ActualCheckOutDate, CheckOutBy, Status);
-            }
-            else
-            {
-                return null;
-            }
-        }
-
-        public static clsReservationRooms GetReservationRoomInfoByRoomIDForCheckOut(int RoomID)
-        {
-            int ReservationRoomID = -1, ReservationID = -1, CheckInBy = -1, CheckOutBy = -1;
-            byte Status = 0;
-            DateTime CheckInDate = DateTime.Now, CheckOutDate = DateTime.Now, ActualCheckOutDate = DateTime.MaxValue;
-
-            if (clsReservationRoomsData.GetReservationRoomInfoByRoomID(RoomID, ref ReservationRoomID, ref ReservationID, ref CheckInDate, ref CheckInBy,
-                                                    ref CheckOutDate, ref ActualCheckOutDate, ref CheckOutBy, ref Status))
-            {
-                return new clsReservationRooms(ReservationRoomID, ReservationID, RoomID, CheckInDate, CheckInBy,
-                                                           CheckOutDate, ActualCheckOutDate, CheckOutBy, Status);
-            }
-            else
-            {
-                return null;
-            }
-        }
-
         private bool _AddNewReservationRoom()
         {
-            this.ReservationRoomID = clsReservationRoomsData.AddNewReservationRoom(this.ReservationID, this.RoomID, this.CheckInDate, this.CheckOutDate, this.Status);
-
-            return (ReservationRoomID != -1);
+            return clsReservationRoomsData.AddNewReservationRoom(this.ReservationID, this.ListUnits, this.CheckInDate, this.CheckOutDate, this.Status);
         }
 
         private bool _UpdateReservationRoom()
@@ -168,11 +133,6 @@ namespace HotelBusinessLayer
             return clsReservationRoomsData.DeleteReservationRoom(this.ReservationRoomID);
         }
 
-        public static bool IsReservationRoomExist(int ReservationRoomID)
-        {
-            return clsReservationRoomsData.IsReservationRoomExist(ReservationRoomID);
-        }
-
         public static DataTable GetAllReservationRooms()
         {
             return clsReservationRoomsData.GetAllReservationRooms();
@@ -181,11 +141,6 @@ namespace HotelBusinessLayer
         public static DataTable GetAllAvailableRooms(DateTime CheckInDate, DateTime CheckOutDate)
         {
             return clsReservationRoomsData.GetAllAvailableRooms(CheckInDate, CheckOutDate);
-        }
-
-        public static DataTable GetAllAvailableRoomsWithRoomCount(byte RoomCount, DateTime CheckInDate, DateTime CheckOutDate)
-        {
-            return clsReservationRoomsData.GetAllAvailableRoomsWithRoomCount(RoomCount, CheckInDate, CheckOutDate);
         }
 
         public static bool IsRoomBooked(int RoomID)
@@ -198,46 +153,19 @@ namespace HotelBusinessLayer
             return clsReservationRoomsData.IsReservationRoomWithDateByRoomNumber(RoomNumber, CheckInDate, CheckOutDate);
         }
 
-        public bool CheckIn(int CheckInBy)
+        public static bool CheckIn(string NationalID, List<int> RoomNumbers, int CheckInBy)
         {
-
-            if (!clsReservationRoomsData.IsReservationRoomNotCheckedIn(this.ReservationRoomID))
-            {
-                return false;
-            }
-
-            if (this.CheckInDate.Date >= DateTime.Now.Date && this.CheckInDate <= DateTime.Now.Date)
-            {
-                return false;
-            }
-
-            this.CheckInBy = CheckInBy;
-
-            return clsReservationRoomsData.CheckIn(this.ReservationRoomID, CheckInBy);
+            return clsReservationRoomsData.CheckIn(NationalID, RoomNumbers, CheckInBy);
         }
 
-        public bool CheckOut(int CheckOutBy)
+        public static bool CheckOut(string NationalID, List<int> RoomNumbers, int CheckOutBy)
         {
-
-            if (!clsReservationRoomsData.IsReservationRoomCheckedIn(this.ReservationRoomID))
-            {
-                return false;
-            }
-
-            this.ActualCheckOutDate = DateTime.Now;
-            this.CheckOutBy = CheckOutBy;
-
-            return clsReservationRoomsData.CheckOut(this.ReservationRoomID, this.ActualCheckOutDate, CheckOutBy);
+            return clsReservationRoomsData.CheckOut(NationalID, RoomNumbers, DateTime.Now, CheckOutBy);
         }
 
-        public bool Cancel()
+        public static bool Cancel(string NationalID, List<int> RoomNumbers)
         {
-            if (clsReservationRoomsData.IsReservationRoomNotCheckedIn(this.ReservationRoomID))
-            {
-                return clsReservationRoomsData.Cancel(this.ReservationRoomID);
-            }
-
-            return false;
+            return clsReservationRoomsData.Cancel(NationalID, RoomNumbers);
         }
 
         public static DataTable GetAllReservationRoomsCheckInToday(DateTime CheckInDate)
@@ -250,9 +178,9 @@ namespace HotelBusinessLayer
             return clsReservationRoomsData.GetAllReservationRoomsCheckOutToday(CheckOutDate);
         }
 
-        public static DataTable GetAllReservationRoomsForPersonByNationalID(string NationalID)
+        public static DataTable GetAllReservationRoomsByNationalID(string NationalID)
         {
-            return clsReservationRoomsData.GetAllReservationRoomsForPersonByNationalID(NationalID);
+            return clsReservationRoomsData.GetAllReservationRoomsByNationalID(NationalID);
         }
 
         public static DataTable GetConflictByRoomNumberAndDates(List<int> ListUnits, DateTime CheckInDate, DateTime CheckOutDate)

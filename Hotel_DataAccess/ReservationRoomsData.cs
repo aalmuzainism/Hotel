@@ -340,50 +340,43 @@ namespace Hotel_DataAccess
             return isFound;
         }
 
-        public static int AddNewReservationRoom(int ReservationID, int RoomID, DateTime CheckInDate, DateTime CheckOutDate, byte Status)
+        public static bool AddNewReservationRoom(int ReservationID, List<int> RoomIDs, DateTime CheckInDate, DateTime CheckOutDate, byte Status)
         {
-            int ReservationRoomID = -1;
+            int rowsAffected = 0;
+
+            string strRoomIDs = string.Join(", ", RoomIDs);
 
             SqlConnection connection = new SqlConnection(clsDataAccessSetings.ConnectionString);
 
-            string query = @"INSERT INTO ReservationRooms
-                                        (ReservationID, RoomID, CheckInDate, CheckOutDate, Status)
-                            VALUES      (@ReservationID, @RoomID, @CheckInDate, @CheckOutDate, @Status);
-                            SELECT SCOPE_IDENTITY();";
+            string query = $@"INSERT INTO ReservationRooms
+                                   (ReservationID, RoomID, CheckInDate, CheckOutDate, Status)
+                            SELECT @ReservationID, RoomID, @CheckInDate, @CheckOutDate, @Status
+                            FROM Rooms 
+                            WHERE Rooms.RoomID IN ({strRoomIDs})";
 
             SqlCommand command = new SqlCommand(query, connection);
 
-
             command.Parameters.AddWithValue("@ReservationID", ReservationID);
-            command.Parameters.AddWithValue("@RoomID", RoomID);
             command.Parameters.AddWithValue("@CheckInDate", CheckInDate);
             command.Parameters.AddWithValue("@CheckOutDate", CheckOutDate);
             command.Parameters.AddWithValue("@Status", Status);
-
 
             try
             {
                 connection.Open();
 
-                object result = command.ExecuteScalar();
-
-                if (result != null && int.TryParse(result.ToString(), out int insertedID))
-                {
-                    ReservationRoomID = insertedID;
-                }
-
-
+                rowsAffected = command.ExecuteNonQuery();
             }
             catch (Exception ex)
             {
-                //Console.WriteLine("Error: " + ex.Message);
+                return false;
             }
             finally
             {
                 connection.Close();
             }
 
-            return ReservationRoomID;
+            return rowsAffected > 0;
         }
 
         public static bool UpdateReservationRoom(int ReservationRoomID, int ReservationID, int RoomID, DateTime CheckInDate,
@@ -429,123 +422,126 @@ namespace Hotel_DataAccess
             return (rowsAffected > 0);
         }
 
-        public static bool CheckIn(int ReservationRoomID, int CheckInBy)
+        public static bool CheckIn(string NationalID, List<int> RoomNumbers, int CheckInBy)
         {
             int rowsAffected = 0;
+            string strRoomNumbers = string.Join(", ", RoomNumbers);
 
-            SqlConnection connection = new SqlConnection(clsDataAccessSetings.ConnectionString);
-
-            string qeury = @"UPDATE ReservationRooms
-                             SET CheckInBy = @CheckInBy,
-                                 Status = 2
-                             WHERE ReservationRoomID = @ReservationRoomID";
-
-            SqlCommand command = new SqlCommand(qeury, connection);
-
-            command.Parameters.AddWithValue("@ReservationRoomID", ReservationRoomID);
-
-            if (CheckInBy != -1)
-                command.Parameters.AddWithValue("@CheckInBy", CheckInBy);
-            else
-                return false;
-
-
-            try
+            using (SqlConnection connection = new SqlConnection(clsDataAccessSetings.ConnectionString))
             {
-                connection.Open();
-                rowsAffected = command.ExecuteNonQuery();
+                string qeury = $@"
+                            UPDATE ReservationRooms
+                            SET CheckInBy = @CheckInBy,
+                            Status = 2
+                            from ReservationRooms
+                            INNER JOIN Rooms ON Rooms.RoomID = ReservationRooms.RoomID
+                            INNER JOIN Reservations ON Reservations.ReservationID = ReservationRooms.ReservationID
+                            INNER JOIN People ON People.PersonID = Reservations.PersonID
+                            WHERE People.NationalID = @NationalID
+                            AND Rooms.RoomNumber IN ({strRoomNumbers})
+                            AND ReservationRooms.Status = 1";
 
-            }
-            catch (Exception ex)
-            {
-                return false;
-            }
-            finally
-            {
-                connection.Close();
-            }
+                using (SqlCommand command = new SqlCommand(qeury, connection))
+                {
+                    command.Parameters.AddWithValue("@NationalID", NationalID);
 
+                    if (CheckInBy != -1)
+                        command.Parameters.AddWithValue("@CheckInBy", CheckInBy);
+                    else
+                        return false;
+
+                    try
+                    {
+                        connection.Open();
+                        rowsAffected = command.ExecuteNonQuery();
+
+                    }
+                    catch (Exception ex)
+                    {
+                        return false;
+                    }
+                }
+            }
 
             return (rowsAffected > 0);
         }
 
-        public static bool CheckOut(int ReservationRoomID, DateTime ActualCheckOutDate, int CheckOutBy)
+        public static bool CheckOut(string NationalID, List<int> RoomNumbers, DateTime ActualCheckOutDate, int CheckOutBy)
         {
             int rowsAffected = 0;
+            string strRoomNumbers = string.Join(", ", RoomNumbers);
 
-            SqlConnection connection = new SqlConnection(clsDataAccessSetings.ConnectionString);
-
-            string qeury = @"UPDATE ReservationRooms
-                             SET ActualCheckOutDate = @ActualCheckOutDate,
-                                 CheckOutBy = @CheckOutBy,
-                                 Status = 3
-                             WHERE ReservationRoomID = @ReservationRoomID";
-
-            SqlCommand command = new SqlCommand(qeury, connection);
-
-            command.Parameters.AddWithValue("@ReservationRoomID", ReservationRoomID);
-
-            if (ActualCheckOutDate != DateTime.MaxValue)
-                command.Parameters.AddWithValue("@ActualCheckOutDate", ActualCheckOutDate);
-            else
-                return false;
-
-
-            if (CheckOutBy != -1)
-                command.Parameters.AddWithValue("@CheckOutBy", CheckOutBy);
-            else
-                return false;
-
-
-
-            try
+            using (SqlConnection connection = new SqlConnection(clsDataAccessSetings.ConnectionString))
             {
-                connection.Open();
-                rowsAffected = command.ExecuteNonQuery();
+                string qeury = $@"
+                            UPDATE ReservationRooms
+                            SET CheckOutBy = @CheckOutBy,
+                            ActualCheckOutDate = @ActualCheckOutDate,
+                            Status = 3
+                            from ReservationRooms
+                            INNER JOIN Rooms ON Rooms.RoomID = ReservationRooms.RoomID
+                            INNER JOIN Reservations ON Reservations.ReservationID = ReservationRooms.ReservationID
+                            INNER JOIN People ON People.PersonID = Reservations.PersonID
+                            WHERE People.NationalID = @NationalID
+                            AND Rooms.RoomNumber IN ({strRoomNumbers})
+                            AND ReservationRooms.Status = 2";
 
-            }
-            catch (Exception ex)
-            {
-                return false;
-            }
-            finally
-            {
-                connection.Close();
-            }
+                using (SqlCommand command = new SqlCommand(qeury, connection))
+                {
+                    command.Parameters.AddWithValue("@NationalID", NationalID);
+                    command.Parameters.AddWithValue("@ActualCheckOutDate", ActualCheckOutDate);
+                    command.Parameters.AddWithValue("@CheckOutBy", CheckOutBy);
 
+                    try
+                    {
+                        connection.Open();
+                        rowsAffected = command.ExecuteNonQuery();
+
+                    }
+                    catch (Exception ex)
+                    {
+                        return false;
+                    }
+                }
+            }
 
             return (rowsAffected > 0);
         }
 
-        public static bool Cancel(int ReservationRoomID)
+        public static bool Cancel(string NationalID, List<int> RoomNumbers)
         {
             int rowsAffected = 0;
+            string strRoomNumbers = string.Join(", ", RoomNumbers);
 
-            SqlConnection connection = new SqlConnection(clsDataAccessSetings.ConnectionString);
-
-            string qeury = @"UPDATE ReservationRooms
-                             SET ReservationRooms.Status = 4
-                             WHERE ReservationRoomID = @ReservationRoomID";
-
-            SqlCommand command = new SqlCommand(qeury, connection);
-
-            command.Parameters.AddWithValue("@ReservationRoomID", ReservationRoomID);
-
-            try
+            using (SqlConnection connection = new SqlConnection(clsDataAccessSetings.ConnectionString))
             {
-                connection.Open();
-                rowsAffected = command.ExecuteNonQuery();
+                string qeury = $@"
+                            UPDATE ReservationRooms
+                            SET Status = 4
+                            from ReservationRooms
+                            INNER JOIN Rooms ON Rooms.RoomID = ReservationRooms.RoomID
+                            INNER JOIN Reservations ON Reservations.ReservationID = ReservationRooms.ReservationID
+                            INNER JOIN People ON People.PersonID = Reservations.PersonID
+                            WHERE People.NationalID = @NationalID
+                            AND Rooms.RoomNumber IN ({strRoomNumbers})
+                            AND ReservationRooms.Status = 1";
 
-            }
-            catch (Exception ex)
-            {
-                return false;
-            }
-            finally
-            {
-                connection.Close();
-            }
+                using (SqlCommand command = new SqlCommand(qeury, connection))
+                {
+                    command.Parameters.AddWithValue("@NationalID", NationalID);
 
+                    try
+                    {
+                        connection.Open();
+                        rowsAffected = command.ExecuteNonQuery();
+
+                    }
+                    catch (Exception ex)
+                    {
+                        return false;
+                    }
+                }
+            }
 
             return (rowsAffected > 0);
         }
@@ -579,107 +575,6 @@ namespace Hotel_DataAccess
 
 
             return (rowsAffected > 0);
-        }
-
-        public static bool IsReservationRoomExist(int ReservationRoomID)
-        {
-            bool isFound = false;
-
-            SqlConnection connection = new SqlConnection(clsDataAccessSetings.ConnectionString);
-
-            string query = "SELECT Found=1 FROM ReservationRooms WHERE ReservationRoomID = @ReservationRoomID";
-
-            SqlCommand command = new SqlCommand(query, connection);
-
-            command.Parameters.AddWithValue("@ReservationRoomID", ReservationRoomID);
-
-            try
-            {
-                connection.Open();
-                SqlDataReader reader = command.ExecuteReader();
-
-                isFound = reader.HasRows;
-
-                reader.Close();
-            }
-            catch (Exception ex)
-            {
-                isFound = false;
-            }
-            finally
-            {
-                connection.Close();
-            }
-
-            return isFound;
-        }
-
-        public static bool IsReservationRoomCheckedIn(int ReservationRoomID)
-        {
-            bool isFound = false;
-
-            SqlConnection connection = new SqlConnection(clsDataAccessSetings.ConnectionString);
-
-            string query = @"SELECT Found=1 FROM ReservationRooms WHERE ReservationRooms.ReservationRoomID = @ReservationRoomID
-                             AND ReservationRooms.Status = 2";
-
-            SqlCommand command = new SqlCommand(query, connection);
-
-            command.Parameters.AddWithValue("@ReservationRoomID", ReservationRoomID);
-
-            try
-            {
-                connection.Open();
-                SqlDataReader reader = command.ExecuteReader();
-
-                isFound = reader.HasRows;
-
-                reader.Close();
-            }
-            catch (Exception ex)
-            {
-                isFound = false;
-            }
-            finally
-            {
-                connection.Close();
-            }
-
-            return isFound;
-        }
-
-        public static bool IsReservationRoomNotCheckedIn(int ReservationRoomID)
-        {
-            bool isFound = false;
-
-            SqlConnection connection = new SqlConnection(clsDataAccessSetings.ConnectionString);
-
-            string query = @"SELECT Found=1 FROM ReservationRooms WHERE ReservationRooms.ReservationRoomID = @ReservationRoomID
-                             AND ReservationRooms.Status = 1";
-
-            SqlCommand command = new SqlCommand(query, connection);
-
-            command.Parameters.AddWithValue("@ReservationRoomID", ReservationRoomID);
-
-            try
-            {
-                connection.Open();
-                SqlDataReader reader = command.ExecuteReader();
-
-                isFound = reader.HasRows;
-
-                reader.Close();
-            }
-            catch (Exception ex)
-            {
-                isFound = false;
-            }
-            finally
-            {
-                connection.Close();
-            }
-
-            return isFound;
         }
 
         public static bool IsRoomBooked(int RoomID)
@@ -1085,7 +980,7 @@ namespace Hotel_DataAccess
 
             SqlConnection connection = new SqlConnection(clsDataAccessSetings.ConnectionString);
 
-            string qeury = @"SELECT ReservationRooms.* FROM ReservationRooms
+            string qeury = @"SELECT * FROM ReservationRooms
                              INNER JOIN Reservations ON Reservations.ReservationID = ReservationRooms.ReservationID
                              INNER JOIN People ON People.PersonID = Reservations.PersonID
                              WHERE People.NationalID = @NationalID AND (ReservationRooms.Status = 1 OR ReservationRooms.Status = 2)";
@@ -1141,6 +1036,56 @@ namespace Hotel_DataAccess
                 {
                     command.Parameters.AddWithValue("@CheckInDate", CheckInDate);
                     command.Parameters.AddWithValue("@CheckOutDate", CheckOutDate);
+
+                    try
+                    {
+                        connection.Open();
+
+                        SqlDataReader reader = command.ExecuteReader();
+
+                        if (reader.HasRows)
+                        {
+                            dt.Load(reader);
+                        }
+
+                        reader.Close();
+                    }
+                    catch (Exception ex)
+                    {
+                        Console.WriteLine("error exception" + ex);
+                    }
+                }
+            }
+
+            return dt;
+        }
+
+        public static DataTable GetAllReservationRoomsByNationalID(string NationalID)
+        {
+            DataTable dt = new DataTable();
+
+            using (SqlConnection connection = new SqlConnection(clsDataAccessSetings.ConnectionString))
+            {
+
+                string query = @"SELECT  People.NationalID, People.FirstName + ' ' + People.SecondName + ' ' + People.LastName as 'FullName',
+                                People.Phone, Rooms.RoomNumber, ReservationRooms.CheckInDate, ReservationRooms.CheckOutDate,
+
+                                CASE 
+                                WHEN ReservationRooms.Status = 1 THEN 'جديد'
+                                WHEN ReservationRooms.Status = 2 THEN 'قائم'
+                                WHEN ReservationRooms.Status = 3 THEN 'مكتمل'
+                                WHEN ReservationRooms.Status = 4 THEN 'ملغي'
+                                END AS status
+
+                                FROM ReservationRooms
+                                INNER JOIN Rooms ON Rooms.RoomID = ReservationRooms.RoomID
+                                INNER JOIN Reservations ON Reservations.ReservationID = ReservationRooms.ReservationID
+                                INNER JOIN People ON People.PersonID = Reservations.PersonID
+                                WHERE People.NationalID = @NationalID";
+
+                using (SqlCommand command = new SqlCommand(query, connection))
+                {
+                    command.Parameters.AddWithValue("@NationalID", NationalID);
 
                     try
                     {
